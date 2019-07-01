@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Talent Acquisiton</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <form name="curriculo">
+            <div id="perfil">
+                <h1>Perfil:</h1>
+                <label for="nome">Nome*:</label>
+                <input type="text" id="nome" required>
+                <label for="idade">Idade*:</label>
+                <input type="number" id="idade" required>
+                <label for="estadoCivil">Estado civil*:</label>
+                <input type="text" id="estadoCivil" required>
+                <label for="nacionalidade">Nacionalidade*:</label>
+                <input type="text" id="nacionalidade" required><br><br>
+                <label for="idiomas">Idiomas*:</label>
+                <input type="button" value="Adicionar idioma" onclick="adicionarIdioma()">
+                <input type="button" value="Remover idioma" onclick="removerIdioma()">
+            </div>
+
+            <div id="contato">
+                <h1>Contato:</h1>
+                <label for="endereco">Endereço*:</label>
+                <input type="text" id="endereco" required>
+                <label for="telefone">Telefone*:</label>
+                <input type="text" id="telefone" required>
+                <label for="email">E-mail*:</label>
+                <input type="email" id="email" required>
+                <label for="website">Website:</label>
+                <input type="url" id="website">
+            </div>
+
+            <div id="formacao">
+                <h1>Formação:</h1>
+                <input type="button" value="Adicionar formação" onclick="adicionarFormacao()">
+                <input type="button" value="Remover formação" onclick="removerFormacao()">
+            </div>
+
+            <div id="experiencia"></div>
+                <h1>Experiências:</h1>
+                
+                <input type="button" value="Adicionar experiência" onclick="adicionarExperiencia()">
+                <input type="button" value="Remover experiencia" onclick="removerExperiencia()">
+            </div>
+
+            <div id="adicionais">
+                <h1>Informações adicionais:</h1>
+                <input type="text" id="informacoesAdicionais" placeholder="Insira quaisquer informações que achar pertinentes." style="height: 100px; width: 800px">
+            </div>
+
+            <div id="enviar">
+                <input type="button" value="Enviar currículo!" onclick="enviarCurriculo()">
+            </div>
+        </form>
+
+        <script src="javascript/jquery-3.4.1.min.js"></script>
+        <script src="javascript/app.js"></script>
+        <script src="javascript/Idioma.js"></script>
+        <script src="javascript/Formacao.js"></script>
+        <script src="javascript/Experiencia.js"></script>
+    </body>
+</html>
