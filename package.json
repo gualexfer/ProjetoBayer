@@ -1,0 +1,22 @@
+{
+  "name": "projeto-bayer",
+  "version": "1.0.0",
+  "description": "Revolucionando o Talent Acquisition da Bayer.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "keywords": [
+    "Bayer",
+    "Talent",
+    "Acquisition"
+  ],
+  "author": "Potatoes Party",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.6.3"
+  }
+}
