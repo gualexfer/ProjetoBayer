@@ -6,5 +6,8 @@
     </head>
     <body>
         <h1>Currículos no banco:</h1>
+        <% curriculos.forEach(function(curriculo) { %>
+            <a href="/curriculo/<%= curriculo._id %>"><%= curriculo.perfil.nome %></a>
+        <% }); %>
     </body>
 </html>

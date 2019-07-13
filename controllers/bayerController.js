@@ -9,7 +9,7 @@ const urlencodedParser = bodyParser.urlencoded( {extended: true} );
 
 module.exports = function(app) {
     app.get('/curriculo', function(req, res) {
-        res.render('curriculo');
+        res.render('submeterCurriculo');
     });
 
     app.post('/curriculo', urlencodedParser, function(req, res) {
@@ -58,7 +58,7 @@ module.exports = function(app) {
 
     app.get('/recrutador', function(req, res) {
         Curriculo.find({}, function(err, curriculos) {
-            res.send(curriculos);
+            res.render('recrutador', {curriculos: curriculos});
         });
     });
 }
