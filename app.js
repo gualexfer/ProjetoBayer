@@ -1,11 +1,13 @@
 const express = require('express');
-const curriculoController = require('./controllers/curriculoController');
+const bayerController = require('./controllers/bayerController');
 
 const app = express();
+app.set('view engine', 'ejs');
 
 app.use("/public", express.static(__dirname + "/public"));
 
-curriculoController(app);
+bayerController(app);
 
-app.listen(3000);
-console.log("Ouvindo a porta 3000.");
+app.listen(3000, function() {
+    console.log("Ouvindo a porta 3000.");
+});
