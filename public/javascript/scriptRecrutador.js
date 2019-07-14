@@ -12,4 +12,6 @@ function arquivarCurriculo(curriculoId) {
         type: 'PUT',
         url: 'curriculo/' + curriculoId
     });
+
+    window.location = window.location.pathname;
 }
