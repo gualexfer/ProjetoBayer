@@ -1,9 +1,8 @@
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const Curriculo = require('../models/curriculo');
 
 mongoose.connect('mongodb+srv://bayer:bayer@cluster0-mfkxs.mongodb.net/test?retryWrites=true&w=majority', {useNewUrlParser: true});
-
-const Curriculo = require('../models/curriculo');
 
 const urlencodedParser = bodyParser.urlencoded( {extended: true} );
 
@@ -59,6 +58,12 @@ module.exports = function(app) {
     app.get('/recrutador', function(req, res) {
         Curriculo.find({}, function(err, curriculos) {
             res.render('recrutador', {curriculos: curriculos});
+        });
+    });
+
+    app.put('/curriculo/:id', function(req, res) {
+        Curriculo.findOneAndUpdate({_id: req.params.id}, {arquivado: true}).then(function(curriculo) {
+            console.log('arquivado com sucesso!');
         });
     });
 }
