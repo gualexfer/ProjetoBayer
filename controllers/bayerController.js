@@ -7,11 +7,11 @@ mongoose.connect('mongodb+srv://bayer:bayer@cluster0-mfkxs.mongodb.net/test?retr
 const urlencodedParser = bodyParser.urlencoded( {extended: true} );
 
 module.exports = function(app) {
-    app.get('/curriculo', function(req, res) {
+    app.get('/submeterCurriculo', function(req, res) {
         res.render('submeterCurriculo');
     });
 
-    app.post('/curriculo', urlencodedParser, function(req, res) {
+    app.post('/submeterCurriculo', urlencodedParser, function(req, res) {
         let curriculo = {
             perfil: {
                 nome: req.body.nome,
