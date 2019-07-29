@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>Talent Acquisiton</title>
-        <meta charset="utf-8">
+        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../public/css/style.css" type="text/css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -10,52 +10,89 @@
     </head>
     <body>
         <form name="curriculo" method="POST" action="/submeterCurriculo">
-            <div id="perfil">
-                <h1>Perfil:</h1>
-                <label for="nome">Nome*:</label>
-                <input type="text" name="nome" required>
-                <label for="idade">Idade*:</label>
-                <input type="number" name="idade" required>
-                <label for="estadoCivil">Estado civil*:</label>
-                <input type="text" name="estadoCivil" required>
-                <label for="nacionalidade">Nacionalidade*:</label>
-                <input type="text" name="nacionalidade" required><br><br>
-                <label for="idiomas">Idiomas*:</label>
-                <input type="button" value="Adicionar idioma" onclick="adicionarIdioma()">
-                <input type="button" value="Remover idioma" onclick="removerIdioma()">
+            <div id="perfil" class="container">
+            <h1>Perfil:</h1>
+            <div class="form-row">
+                <div class="form-group col">
+                    <label for="nome">Nome Completo:</label>
+                    <input type="text" class="form-control" placeholder="Insira seu nome completo" name="nome" required>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="idade">Idade:</label>
+                    <input type="number" class="form-control" placeholder="Insira a data de nascimento" name="idade" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col">
+                    <label for="estadoCivil">Estado Civil:</label>
+                    <select class="form-control" name="estadoCivil" required>
+                            <option>Solteiro(a)</option>
+                            <option>Casado(a)</option>
+                            <option>Divorciado(a)</option>
+                            <option>Separado(a)</option>
+                            <option>Viúvo(a)</option>
+                    </select>
+                </div>
+                <div class="form-group col">
+                    <label for="nacionalidade">Nacionalidade:</label>
+                    <input type="text" class="form-control" placeholder="insira sua nacionalidade" name="nacionalidade" required><br>
+                </div>
+            </div>
+                <div class="form-group">
+                    <label for="idiomas">Idiomas:</label>
+                    <input type="button" value="Adicionar idioma" onclick="adicionarIdioma()">
+                    <input type="button" value="Remover idioma" onclick="removerIdioma()">
+                </div>
             </div>
 
-            <div id="contato">
-                <h1>Contato:</h1>
-                <label for="endereco">Endereço*:</label>
-                <input type="text" name="endereco" required>
-                <label for="telefone">Telefone*:</label>
-                <input type="text" name="telefone" required>
-                <label for="email">E-mail*:</label>
-                <input type="email" name="email" required>
-                <label for="website">Website:</label>
-                <input type="url" name="website">
+            <div id="contato" class="container">
+            <h1>Contato:</h1>
+            <div class="form-row">
+                <div class="form-group col">
+                    <label for="endereco">Endereço:</label>
+                    <input type="text" class="form-control" placeholder="Insira seu endereço" name="endereco" required>
+                </div>
+                <div class="form-group col">
+                    <label for="telefone">Telefone:</label>
+                    <input type="text" class="form-control" placeholder="Insira seu telefone" name="telefone" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col">
+                    <label for="email">E-mail*:</label>
+                    <input type="email" class="form-control" placeholder="Insira seu e-mail" name="email" required>
+                </div>
+                <div class="form-group col">
+                    <label for="website">Website:</label>
+                    <input type="url" class="form-control" placeholder="Insira seu website" name="website">
+                </div>
+            </div>
             </div>
 
-            <div id="formacao">
-                <h1>Formação:</h1>
-                <input type="button" value="Adicionar formação" onclick="adicionarFormacao()">
-                <input type="button" value="Remover formação" onclick="removerFormacao()">
+            <div id="formacao" class="container">
+                <div class = "form-group">
+                    <h1>Formação:</h1>
+                    <input type="button" value="Adicionar formação" onclick="adicionarFormacao()">
+                    <input type="button" value="Remover formação" onclick="removerFormacao()">
+                </div>    
             </div>
 
-            <div id="experiencia"></div>
-                <h1>Experiências:</h1>
-                
-                <input type="button" value="Adicionar experiência" onclick="adicionarExperiencia()">
-                <input type="button" value="Remover experiencia" onclick="removerExperiencia()">
+            <div id="experiencia" class="container">
+                <div class = "form-group">    
+                    <h1>Experiências:</h1>
+                    <input type="button" value="Adicionar experiência" onclick="adicionarExperiencia()">
+                    <input type="button" value="Remover experiencia" onclick="removerExperiencia()">
+                </div>
             </div>
 
-            <div id="adicionais">
-                <h1>Informações adicionais:</h1>
-                <input type="text" name="informacoesAdicionais" placeholder="Insira quaisquer informações que achar pertinentes." style="height: 100px; width: 800px">
+            <div id="adicionais" class="container">
+                <div class = "form-group">
+                    <h1>Informações adicionais:</h1>
+                    <textarea class="form-control" rows="5" name="informacoesAdicionais" placeholder="Insira quaisquer informações que achar pertinentes."></textarea>
+                </div>    
             </div>
 
-            <div id="enviar">
+            <div id="enviar" class="container">
                 <input type="submit" value="Enviar currículo!">
             </div>
         </form>
