@@ -1,6 +1,10 @@
 
 
 .container{
-    background-color:grey;
+    background-color: whitesmoke;
     border-radius:8px;
+    margin: 10px; 
+    padding: 10px; 
+    height: 100%;
+	font-family: Poppins-Regular, sans-serif;
 }
