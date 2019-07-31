@@ -17,21 +17,21 @@
                     background-color:dimgrey;
                     }
             </style>
-        <form name="curriculo" method="POST" action="/submeterCurriculo">
-            <div id="perfil" class="container">
+        <form name="curriculo" class="container" method="POST" action="/submeterCurriculo">
+            <div id="perfil">
             <h1>Perfil:</h1>
             <div class="form-row">
-                <div class="form-group col">
+                <div class="form-group col-md-6">
                     <label for="nome">Nome Completo:</label>
                     <input type="text" class="form-control" placeholder="Insira seu nome completo" name="nome" required>
                 </div>
-                <div class="form-group col-md-3">
+                <div class="form-group col-xs-1">
                     <label for="idade">Data de Nascimento:</label>
                     <input type="date" class="form-control" placeholder="Insira a data de nascimento" name="idade" required>
                 </div>
             </div>
             <div class="form-row">
-                <div class="form-group col">
+                <div class="form-group col-xs-3">
                     <label for="estadoCivil">Estado Civil:</label>
                     <select class="form-control" name="estadoCivil" required>
                             <option>Solteiro(a)</option>
@@ -41,7 +41,7 @@
                             <option>Viúvo(a)</option>
                     </select>
                 </div>
-                <div class="form-group col">
+                <div class="form-group col-md-3">
                     <label for="nacionalidade">Nacionalidade:</label>
                     <input type="text" class="form-control" placeholder="insira sua nacionalidade" name="nacionalidade" required><br>
                 </div>
@@ -68,19 +68,20 @@
             </div> 
             </div>
 
-            <div id="formacao" class="container">
+            <div id="formacao">
                 <div class = "form-group">
                     <h1>Formação:</h1>
                     <button type="button" value="Adicionar formação" onclick="adicionarFormacao()" class="btn btn-outline-secondary">Adicionar formação</button>
                     <button type="button" value="Remover formação" onclick="removerFormacao()" class="btn btn-outline-secondary">Remover formação</button>
                 </div>
                 <div class="form-group">
+                    <h1>Idioma:</h1>
                     <button type="button" value="Adicionar idioma" onclick="adicionarIdioma()" class="btn btn-outline-secondary">Adicionar idioma</button>
                     <button type="button" value="Remover idioma" onclick="removerIdioma()" class="btn btn-outline-secondary">Remover idioma</button>
                 </div>    
             </div>
 
-            <div id="experiencia" class="container">
+            <div id="experiencia">
                 <div class = "form-group">    
                     <h1>Experiências:</h1>
                     <button type="button" value="Adicionar experiência" onclick="adicionarExperiencia()" class="btn btn-outline-secondary">Adicionar experiência</button>
@@ -88,14 +89,14 @@
                 </div>
             </div>
 
-            <div id="adicionais" class="container">
+            <div id="adicionais">
                 <div class = "form-group">
                     <h1>Informações adicionais:</h1>
                     <textarea class="form-control" rows="5" name="informacoesAdicionais" placeholder="Insira quaisquer informações que achar pertinentes."></textarea>
                 </div>    
             </div>
 
-            <div id="enviar" class="container">
+            <div id="enviar">
                 <button type="button" value="Enviar currículo!" class="btn btn-outline-success">Enviar currículo!</button>
             </div>
         </form>
