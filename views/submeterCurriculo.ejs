@@ -7,6 +7,9 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     </head>
     <body>
             <style>
@@ -68,20 +71,20 @@
             <div id="formacao" class="container">
                 <div class = "form-group">
                     <h1>Formação:</h1>
-                    <input type="button" value="Adicionar formação" onclick="adicionarFormacao()">
-                    <input type="button" value="Remover formação" onclick="removerFormacao()">
+                    <button type="button" value="Adicionar formação" onclick="adicionarFormacao()" class="btn btn-outline-secondary">Adicionar formação</button>
+                    <button type="button" value="Remover formação" onclick="removerFormacao()" class="btn btn-outline-secondary">Remover formação</button>
                 </div>
                 <div class="form-group">
-                    <input type="button" value="Adicionar idioma" onclick="adicionarIdioma()">
-                    <input type="button" value="Remover idioma" onclick="removerIdioma()">
+                    <button type="button" value="Adicionar idioma" onclick="adicionarIdioma()" class="btn btn-outline-secondary">Adicionar idioma</button>
+                    <button type="button" value="Remover idioma" onclick="removerIdioma()" class="btn btn-outline-secondary">Remover idioma</button>
                 </div>    
             </div>
 
             <div id="experiencia" class="container">
                 <div class = "form-group">    
                     <h1>Experiências:</h1>
-                    <input type="button" value="Adicionar experiência" onclick="adicionarExperiencia()">
-                    <input type="button" value="Remover experiencia" onclick="removerExperiencia()">
+                    <button type="button" value="Adicionar experiência" onclick="adicionarExperiencia()" class="btn btn-outline-secondary">Adicionar experiência</button>
+                    <button type="button" value="Remover experiencia" onclick="removerExperiencia()" class="btn btn-outline-secondary">Remover experiencia</button>
                 </div>
             </div>
 
@@ -93,7 +96,7 @@
             </div>
 
             <div id="enviar" class="container">
-                <input type="submit" value="Enviar currículo!">
+                <button type="button" value="Enviar currículo!" class="btn btn-outline-success">Enviar currículo!</button>
             </div>
         </form>
 
