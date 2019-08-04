@@ -15,10 +15,36 @@
         <div id="perfil">
             <h1><%= curriculo[0].perfil.nome %></h1>
             <p><%= curriculo[0].perfil.idade %> anos</p>
-            <p><%= curriculo[0].contato.endereco %> </p>
-            <p>Telefone: </p>
+            <p><%= curriculo[0].contato.endereco %> - <%= curriculo[0].contato.bairro %> - <%= curriculo[0].contato.cidade %> - <%= curriculo[0].contato.estado %></p>
+            <p>Telefone: <%= curriculo[0].contato.telefone %></p>
+            <p>E-mail: <%= curriculo[0].contato.email %></p>
+            <p>Website: <%= curriculo[0].contato.website %></p>
         </div>
-        <script src="../public/javascript/jquery-3.4.1.min.js"></script>
-        <script src="../public/javascript/scriptSubmeterCurriculo.js"></script>
+        <div id="formacao">
+            <h2>Formações</h2>
+            <% curriculo[0].formacao.forEach(function(formacao) { %>
+                <p><%= formacao.instituicao %> (<%= formacao.inicioDaFormacao %> - <%= formacao.fimDaFormacao %>)</p>
+                <p><%= formacao.titulo %></p>
+                <p><%= formacao.comentarios %></p>
+            <% }) %>
+        </div>
+        <div id="idiomas">
+            <h2>Idiomas</h2>
+            <% curriculo[0].idiomas.forEach(function(idioma) { %>
+                <p><%= idioma.idioma %> - <%= idioma.nivelDeFluencia %></p>
+            <% }) %>
+        </div>
+        <div id="experiencias">
+            <h2>Experiências</h2>
+            <% curriculo[0].experiencias.forEach(function(experiencia) { %>
+                <p><%= experiencia.cargo %> (<%= experiencia.inicioDaExperiencia %> - <%= experiencia.fimDaExperiencia %>)</p>
+                <p><%= experiencia.empresa %></p>
+                <p><%= experiencia.descricao %></p>
+            <% }) %>
+        </div>
+        <div id="adicionais">
+            <h2>Informações adicionais</h2>
+            <%= curriculo[0].informacoesAdicionais %>
+        </div>
     </body>
 </html>
