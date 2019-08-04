@@ -15,3 +15,12 @@ function arquivarCurriculo(curriculoId) {
 
     window.location = window.location.pathname;
 }
+
+function deletarCurriculo(curriculoId) {
+    $.ajax({
+        type: 'DELETE',
+        url: 'curriculo/' + curriculoId
+    });
+
+    window.location = window.location.pathname;
+}

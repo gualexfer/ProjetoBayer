@@ -5,19 +5,7 @@ let numeroDeIdiomas = 0;
 $(function(e) {
 
     $('form').on('submit', function(e) {
-        /*if (numeroDeExperiencias == 0 || numeroDeFormacoes == 0 || numeroDeIdiomas == 0) {
-            if (numeroDeExperiencias == 0) {
-                alert('Insira experiências!');
-            }
-            if (numeroDeFormacoes == 0) {
-                alert('Insira formações!');
-            }
-            if (numeroDeIdiomas == 0) {
-                alert('Insira idiomas!');
-            }
-
-            e.preventDefault();
-        }*/
+        console.log('oi');
     });
 
 });

@@ -63,7 +63,11 @@ module.exports = function(app) {
 
     app.put('/curriculo/:id', function(req, res) {
         Curriculo.findOneAndUpdate({_id: req.params.id}, {arquivado: true}).then(function(curriculo) {
-            console.log('arquivado com sucesso!');
+        });
+    });
+
+    app.delete('/curriculo/:id', function(req, res) {
+        Curriculo.findByIdAndDelete({_id: req.params.id}).then(function(curriculo) {
         });
     });
 }
