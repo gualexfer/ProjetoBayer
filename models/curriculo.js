@@ -5,13 +5,13 @@ const curriculoSchema = new mongoose.Schema({
         nome: String,
         idade: String,
         estadoCivil: String,
-        nacionalidade: String,
-        idiomas: Array
-            //     idioma: String,
-            //     nivelDeFluencia: String
+        nacionalidade: String
     },
     contato: {
         endereco: String,
+        bairro: String,
+        cidade: String,
+        estado: String,
         telefone: String,
         email: String,
         website: String
@@ -25,6 +25,11 @@ const curriculoSchema = new mongoose.Schema({
         //     comentarios: String
         // }
     ,
+    idiomas: Array,
+            // {
+            //     idioma: String,
+            //     nivelDeFluencia: String
+            // }
     experiencias: Array
         // {
         //     cargo: String,

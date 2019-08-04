@@ -18,18 +18,21 @@ module.exports = function(app) {
                 idade: req.body.idade,
                 estadoCivil: req.body.estadoCivil,
                 nacionalidade: req.body.nacionalidade,
-                idiomas: [
-
-                ]
             },
             contato: {
                 endereco: req.body.endereco,
+                bairro: req.body.bairro,
+                cidade: req.body.cidade,
+                estado: req.body.estado,
                 telefone: req.body.telefone,
                 email: req.body.email,
                 website: req.body.website
             },
             formacao: [
                 
+            ],
+            idiomas: [
+
             ],
             experiencias: [
                 
@@ -38,7 +41,7 @@ module.exports = function(app) {
         };
 
         for (let i = 0; req.body["idioma" + i] != undefined; ++i){
-            curriculo.perfil.idiomas.push({idioma: req.body["idioma" + i], nivelDeFluencia: req.body["fluencia" + i]});
+            curriculo.idiomas.push({idioma: req.body["idioma" + i], nivelDeFluencia: req.body["fluencia" + i]});
         }
 
         for (let i = 0; req.body["titulo" + i] != undefined; ++i){
@@ -53,6 +56,7 @@ module.exports = function(app) {
             if (err) throw err;
         });
         res.send("Seu currículo foi enviado com sucesso!");
+        console.log(curriculo);
     });
 
     app.get('/recrutador', function(req, res) {
