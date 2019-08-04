@@ -16,6 +16,7 @@ module.exports = function(app) {
             perfil: {
                 nome: req.body.nome,
                 idade: req.body.idade,
+                dataDeNascimento: req.body.dataDeNascimento,
                 estadoCivil: req.body.estadoCivil,
                 nacionalidade: req.body.nacionalidade,
             },
@@ -56,7 +57,6 @@ module.exports = function(app) {
             if (err) throw err;
         });
         res.send("Seu currículo foi enviado com sucesso!");
-        console.log(novoCurriculo);
     });
 
     app.get('/recrutador', function(req, res) {

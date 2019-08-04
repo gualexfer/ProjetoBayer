@@ -4,6 +4,7 @@ const curriculoSchema = new mongoose.Schema({
     perfil: {
         nome: String,
         idade: String,
+        dataDeNascimento: String,
         estadoCivil: String,
         nacionalidade: String
     },
