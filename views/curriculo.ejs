@@ -12,7 +12,12 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     </head>
     <body>
-        <h1><%= curriculo[0].perfil.nome %></h1>
+        <div id="perfil">
+            <h1><%= curriculo[0].perfil.nome %></h1>
+            <p><%= curriculo[0].perfil.idade %> anos</p>
+            <p><%= curriculo[0].contato.endereco %> </p>
+            <p>Telefone: </p>
+        </div>
         <script src="../public/javascript/jquery-3.4.1.min.js"></script>
         <script src="../public/javascript/scriptSubmeterCurriculo.js"></script>
     </body>
