@@ -41,7 +41,7 @@ module.exports = function(app) {
         };
 
         for (let i = 0; req.body["idioma" + i] != undefined; ++i){
-            curriculo.idiomas.push({idioma: req.body["idioma" + i], nivelDeFluencia: req.body["fluencia" + i]});
+            curriculo.idiomas.push({idioma: req.body["idioma" + i], nivelDeFluencia: req.body["fluencia" + i], instituicaoDeEnsino: req.body["instituicaoDeEnsino" + i]});
         }
 
         for (let i = 0; req.body["titulo" + i] != undefined; ++i){
@@ -56,7 +56,7 @@ module.exports = function(app) {
             if (err) throw err;
         });
         res.send("Seu currículo foi enviado com sucesso!");
-        console.log(curriculo);
+        console.log(novoCurriculo);
     });
 
     app.get('/recrutador', function(req, res) {

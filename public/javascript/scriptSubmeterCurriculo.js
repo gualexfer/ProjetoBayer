@@ -11,7 +11,7 @@ $(function(e) {
 });
 
 function adicionarIdioma() {
-    $('<div id="novoIdioma' + numeroDeIdiomas + '" class="container"><label for="idioma' + numeroDeIdiomas + '">Idioma: </label><input type = "text" class="form-control id="idioma' + numeroDeIdiomas + '" name="idioma' + numeroDeIdiomas + '" required><label for="fluencia">Nível de fluência: </label><select id="fluencia' + numeroDeIdiomas + '" class="form-control" name="fluencia' + numeroDeIdiomas++ + '"><option value="Básico">Básico</option><option value="Intermediário">Intermediário</option><option value="Avançado">Avançado</option><option value="Fluente">Fluente</option></select></div>').insertBefore("#experiencia");
+    $('<div id="novoIdioma' + numeroDeIdiomas + '" class="container"><label for="idioma' + numeroDeIdiomas + '">Idioma: </label><input type = "text" class="form-control id="idioma' + numeroDeIdiomas + '" name="idioma' + numeroDeIdiomas + '" required><label for="fluencia">Nível de fluência: </label><select id="fluencia' + numeroDeIdiomas + '" class="form-control" name="fluencia' + numeroDeIdiomas + '"><option value="Básico">Básico</option><option value="Intermediário">Intermediário</option><option value="Avançado">Avançado</option><option value="Fluente">Fluente</option></select><label for="instituicaoDeEnsino' + numeroDeIdiomas + '">Instituição: </label><input type = "text" class="form-control id="instituicaoDeEnsino' + numeroDeIdiomas + '" name="instituicaoDeEnsino' + numeroDeIdiomas++ + '" required></div>').insertBefore("#experiencia");
 }
 
 function removerIdioma() {

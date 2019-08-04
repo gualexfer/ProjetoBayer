@@ -29,6 +29,7 @@ const curriculoSchema = new mongoose.Schema({
             // {
             //     idioma: String,
             //     nivelDeFluencia: String
+            //     instituicao: String
             // }
     experiencias: Array
         // {

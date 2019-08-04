@@ -31,7 +31,7 @@
         <div id="idiomas">
             <h2>Idiomas</h2>
             <% curriculo[0].idiomas.forEach(function(idioma) { %>
-                <p><%= idioma.idioma %> - <%= idioma.nivelDeFluencia %></p>
+                <p><%= idioma.idioma %> - <%= idioma.nivelDeFluencia %> - <%= idioma.instituicaoDeEnsino %></p>
             <% }) %>
         </div>
         <div id="experiencias">
@@ -46,5 +46,6 @@
             <h2>Informações adicionais</h2>
             <%= curriculo[0].informacoesAdicionais %>
         </div>
+        <% console.log(curriculo[0]) %>
     </body>
 </html>
