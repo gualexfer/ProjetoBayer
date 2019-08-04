@@ -61,6 +61,16 @@ module.exports = function(app) {
         });
     });
 
+    app.get('/curriculo/:id', function(req, res) {
+        Curriculo.find({_id: req.params.id}, function(err, curriculo) {
+            res.render('curriculo', {curriculo: curriculo});
+        });
+        /*Curriculo.find({_id: req.params.id}, function(err, curriculo) {
+            console.log(curriculo[0].perfil.nome);
+            res.send('oi');
+        });*/
+    })
+
     app.put('/curriculo/:id', function(req, res) {
         Curriculo.findOneAndUpdate({_id: req.params.id}, {arquivado: true}).then(function(curriculo) {
         });
