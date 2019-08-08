@@ -7,7 +7,7 @@
     height: 100%;
     font-family: Poppins-Regular, sans-serif;
     width: 100%;
-    min-width: 100vh;
+  
     display: flexbox;
     flex-wrap: wrap;
     justify-content: center;
