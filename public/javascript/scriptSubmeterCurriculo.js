@@ -8,7 +8,37 @@ $(function(e) {
         console.log('oi');
     });
 
+    $('[name="cep"]').on("change", function(e) {
+        const cep = document.getElementById("cep").value;
+        console.log(cep);
+        const url = "http://cep.republicavirtual.com.br/web_cep.php?cep=" + cep + "&formato=jsonp";
+        jsonp(url, ({ resultado, uf, cidade, bairro, tipo_logradouro, logradouro }) => {
+        if (resultado == 1) {
+            const endereco = document.getElementById("endereco");
+            const city = document.getElementById("cidade");
+            const state = document.getElementById("estado");
+            const bair = document.getElementById("bairro");
+            endereco.value = tipo_logradouro + " " + logradouro;
+            city.value = cidade;
+            state.value = uf;
+            bair.value = bairro;
+        }
+    });
+    })
+
 });
+
+function jsonp(url, callback) {
+    var callbackName = 'jsonp_callback_' + Math.round(100000 * Math.random());
+    window[callbackName] = (data) => {
+        delete window[callbackName];
+        document.body.removeChild(script);
+        callback(data);
+    };
+    var script = document.createElement('script');
+    script.src = url + (url.indexOf('?') >= 0 ? '&' : '?') + 'callback=' + callbackName;
+    document.body.appendChild(script);
+}
 
 function adicionarIdioma() {
     $('<div id="novoIdioma' + numeroDeIdiomas + '" class="container"><label for="idioma' + numeroDeIdiomas + '">Idioma: </label><input type = "text" class="form-control id="idioma' + numeroDeIdiomas + '" name="idioma' + numeroDeIdiomas + '" required><label for="fluencia">Nível de fluência: </label><select id="fluencia' + numeroDeIdiomas + '" class="form-control" name="fluencia' + numeroDeIdiomas + '"><option value="Básico">Básico</option><option value="Intermediário">Intermediário</option><option value="Avançado">Avançado</option><option value="Fluente">Fluente</option></select><label for="instituicaoDeEnsino' + numeroDeIdiomas + '">Instituição: </label><input type = "text" class="form-control id="instituicaoDeEnsino' + numeroDeIdiomas + '" name="instituicaoDeEnsino' + numeroDeIdiomas++ + '" required></div>').insertBefore("#experiencia");
