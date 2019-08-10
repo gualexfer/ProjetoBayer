@@ -9,7 +9,10 @@ const curriculoSchema = new mongoose.Schema({
         nacionalidade: String
     },
     contato: {
+        cep: String,
         endereco: String,
+        numero: String,
+        complemento: String,
         bairro: String,
         cidade: String,
         estado: String,

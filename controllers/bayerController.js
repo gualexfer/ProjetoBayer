@@ -21,7 +21,10 @@ module.exports = function(app) {
                 nacionalidade: req.body.nacionalidade,
             },
             contato: {
+                cep: req.body.cep,
                 endereco: req.body.endereco,
+                numero: req.body.numero,
+                complemento: req.body.complemento,
                 bairro: req.body.bairro,
                 cidade: req.body.cidade,
                 estado: req.body.estado,
@@ -57,6 +60,7 @@ module.exports = function(app) {
             if (err) throw err;
         });
         res.send("Seu currículo foi enviado com sucesso!");
+        console.log(curriculo);
     });
 
     app.get('/recrutador', function(req, res) {
