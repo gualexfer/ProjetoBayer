@@ -3,14 +3,8 @@ let numeroDeFormacoes = 0;
 let numeroDeIdiomas = 0;
 
 $(function(e) {
-
-    $('form').on('submit', function(e) {
-        console.log('oi');
-    });
-
     $('[name="cep"]').on("change", function(e) {
         const cep = document.getElementById("cep").value;
-        console.log(cep);
         const url = "http://cep.republicavirtual.com.br/web_cep.php?cep=" + cep + "&formato=jsonp";
         jsonp(url, ({ resultado, uf, cidade, bairro, tipo_logradouro, logradouro }) => {
         if (resultado == 1) {
