@@ -20,6 +20,16 @@ $(function(e) {
         });
     })
 
+    $('[name="dataDeNascimento"]').focusout(function(e) {
+        if ($('[name="dataDeNascimento"]').val() != '') {
+            let nascimento = new Date($('[name="dataDeNascimento"]').val());
+            let data = new Date();
+            let idade = calculateAge(nascimento, data);
+            if (idade > 0) {
+                $('[name="idade"]').val(idade);
+            }
+        }
+    });
 });
 
 function jsonp(url, callback) {
@@ -32,6 +42,20 @@ function jsonp(url, callback) {
     var script = document.createElement('script');
     script.src = url + (url.indexOf('?') >= 0 ? '&' : '?') + 'callback=' + callbackName;
     document.body.appendChild(script);
+}
+
+function calculateAge (birthDate, otherDate) {
+    birthDate = new Date(birthDate);
+    otherDate = new Date(otherDate);
+
+    var years = (otherDate.getFullYear() - birthDate.getFullYear());
+
+    if (otherDate.getMonth() < birthDate.getMonth() || 
+        otherDate.getMonth() == birthDate.getMonth() && otherDate.getDate() < parseInt(birthDate.getDate() + 1)) {
+        years--;
+    }
+
+    return years;
 }
 
 function adicionarIdioma() {
