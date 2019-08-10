@@ -23,21 +23,21 @@
             <div class="form-row">
                 <div class="form-group col-12 col-sm-6">
                     <label for="nome">Nome Completo:</label>
-                    <input type="text" class="form-control" placeholder="Insira seu nome completo" name="nome" required>
+                    <input type="text" class="form-control" placeholder="Insira seu nome completo" name="perfil[nome]" required>
                 </div>
                 <div class="form-group col-6 col-sm-4">
                     <label for="dataDeNascimento">Data de Nascimento:</label>
-                    <input type="date" class="form-control" placeholder="Insira a data de nascimento" name="dataDeNascimento" required>
+                    <input type="date" class="form-control" placeholder="Insira a data de nascimento" name="perfil[dataDeNascimento]" required>
                 </div>
                 <div class="form-group col-6 col-sm-2">
                         <label for="idade">Idade:</label>
-                        <input type="number" class="form-control" name="idade" required>
+                        <input type="number" class="form-control" name="perfil[idade]" required>
                     </div>
             </div>
             <div class="form-row">
                 <div class="form-group col">
                     <label for="estadoCivil">Estado Civil:</label>
-                    <select class="form-control" name="estadoCivil" required>
+                    <select class="form-control" name="perfil[estadoCivil]" required>
                             <option>Solteiro(a)</option>
                             <option>Casado(a)</option>
                             <option>Divorciado(a)</option>
@@ -47,37 +47,37 @@
                 </div>
                 <div class="form-group col">
                     <label for="nacionalidade">Nacionalidade:</label>
-                    <input type="text" class="form-control" placeholder="insira sua nacionalidade" name="nacionalidade" required>
+                    <input type="text" class="form-control" placeholder="insira sua nacionalidade" name="perfil[nacionalidade]" required>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-4">
                         <label for="cep">CEP:</label>
-                        <input type="text" class="form-control" placeholder="Insira o CEP" name="cep" id="cep" required>
+                        <input type="text" class="form-control" placeholder="Insira o CEP" name="contato[cep]" id="cep" required>
                 </div>
                 <div class="form-group col-4">
                         <label for="bairro">Bairro:</label>
-                        <input type="text" class="form-control" placeholder="Insira o bairro" name="bairro" id="bairro" required>
+                        <input type="text" class="form-control" placeholder="Insira o bairro" name="contato[bairro]" id="bairro" required>
                 </div>
                 <div class="form-group col-4">
                     <label for="cidade">Cidade:</label>
-                    <input type="text" class="form-control" placeholder="Insira o nome da cidade" name="cidade" id="cidade" required>
+                    <input type="text" class="form-control" placeholder="Insira o nome da cidade" name="contato[cidade]" id="cidade" required>
                 </div>
                 <div class="form-group col-12 col-sm-6">
                     <label for="endereco">Endereço:</label>
-                    <input type="text" class="form-control" placeholder="Insira seu endereço" name="endereco" id="endereco" required>
+                    <input type="text" class="form-control" placeholder="Insira seu endereço" name="contato[endereco]" id="endereco" required>
                 </div>
                 <div class="form-group col-6 col-sm-3">
                         <label for="numero">Número:</label>
-                        <input type="text" class="form-control" placeholder="Insira o número" name="numero" id="numero" required>
+                        <input type="text" class="form-control" placeholder="Insira o número" name="contato[numero]" id="numero" required>
                 </div>
                 <div class="form-group col-6 col-sm-3">
                         <label for="numero">Complemento:</label>
-                        <input type="text" class="form-control" placeholder="Insira o complemento" name="complemento" id="complemento" required>
+                        <input type="text" class="form-control" placeholder="Insira o complemento" name="contato[complemento]" id="complemento" required>
                 </div>
                 <div class="form-group col-6">
                     <label for="estado">Estado:</label>
-                    <select class="form-control" class="form-control" name="estado" id="estado" required>
+                    <select class="form-control" class="form-control" name="contato[estado]" id="estado" required>
                             <option value="AC">Acre</option>
                             <option value="AL">Alagoas</option>
                             <option value="AP">Amapá</option>
@@ -109,17 +109,17 @@
                 </div>
                 <div class="form-group col-6">
                     <label for="telefone">Telefone:</label>
-                    <input type="text" class="form-control" placeholder="Insira seu telefone" name="telefone" required>
+                    <input type="text" class="form-control" placeholder="Insira seu telefone" name="contato[telefone]" required>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-6">
                     <label for="email">E-mail:</label>
-                    <input type="email" class="form-control" placeholder="Insira seu e-mail" name="email" required>
+                    <input type="email" class="form-control" placeholder="Insira seu e-mail" name="contato[email]" required>
                 </div>
                 <div class="form-group col-6">
                     <label for="website">Website:</label>
-                    <input type="url" class="form-control" placeholder="Insira seu website" name="website">
+                    <input type="url" class="form-control" placeholder="Insira seu website" name="contato[website]">
                 </div>
             </div> 
             </div>
@@ -158,7 +158,34 @@
             <div id="enviar">
                 <button type="submit" value="Enviar currículo!" class="btn btn-outline-success">Enviar currículo!</button>
             </div>
+
         </form>
+
+        <div name="novoIdioma" id="novoIdioma" hidden>
+                <div class="form-row" name="idioma">
+                    <div class="form-group col-12">
+                        <label for="idioma">Idioma:</label>
+                        <input type="text" class="form-control" id="idioma" name="idiomas[0][idioma]">
+                    </div>
+                </div>
+                <div class="form-row" name="fluencia">
+                    <div class="form-group col-12">
+                        <label for="fluencia">Nível de fluência:</label>
+                        <select name="idiomas[0][nivelDeFluencia]" class="form-control">
+                            <option value="Básico">Básico</option>
+                            <option value="Intermediário">Intermediário</option>
+                            <option value="Avançado">Avançado</option>
+                            <option value="Fluente">Fluente</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row" name="instituicao">
+                    <div class="form-group col-12">
+                        <label for="instituicaoDeEnsino">Instituição:</label>
+                        <input type="text" id="instituicaoDeEnsino" name="idiomas[0][instituicao]" class="form-control">
+                    </div>      
+                </div>
+            </div>
 
         <script src="../public/javascript/jquery-3.4.1.min.js"></script>
         <script src="../public/javascript/scriptSubmeterCurriculo.js"></script>

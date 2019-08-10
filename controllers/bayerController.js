@@ -12,49 +12,7 @@ module.exports = function(app) {
     });
 
     app.post('/submeterCurriculo', urlencodedParser, function(req, res) {
-        let curriculo = {
-            perfil: {
-                nome: req.body.nome,
-                idade: req.body.idade,
-                dataDeNascimento: req.body.dataDeNascimento,
-                estadoCivil: req.body.estadoCivil,
-                nacionalidade: req.body.nacionalidade,
-            },
-            contato: {
-                cep: req.body.cep,
-                endereco: req.body.endereco,
-                numero: req.body.numero,
-                complemento: req.body.complemento,
-                bairro: req.body.bairro,
-                cidade: req.body.cidade,
-                estado: req.body.estado,
-                telefone: req.body.telefone,
-                email: req.body.email,
-                website: req.body.website
-            },
-            formacao: [
-                
-            ],
-            idiomas: [
-
-            ],
-            experiencias: [
-                
-            ],
-            informacoesAdicionais: req.body.informacoesAdicionais
-        };
-
-        for (let i = 0; req.body["idioma" + i] != undefined; ++i){
-            curriculo.idiomas.push({idioma: req.body["idioma" + i], nivelDeFluencia: req.body["fluencia" + i], instituicaoDeEnsino: req.body["instituicaoDeEnsino" + i]});
-        }
-
-        for (let i = 0; req.body["titulo" + i] != undefined; ++i){
-            curriculo.formacao.push({titulo: req.body["titulo" + i], instituicao: req.body["instituicao" + i], inicioDaFormacao: req.body["inicioDaFormacao" + i], fimDaFormacao: req.body["fimDaFormacao" + i], comentarios: req.body["comentarios" + i]});
-        }
-
-        for (let i = 0; req.body["cargo" + i] != undefined; ++i){
-            curriculo.experiencias.push({cargo: req.body["cargo" + i], empresa: req.body["empresa" + i], inicioDaExperiencia: req.body["inicioDaExperiencia" + i], fimDaExperiencia: req.body["fimDaExperiencia" + i], descricao: req.body["descricao" + i]});
-        }
+        let curriculo = req.body;
 
         let novoCurriculo = Curriculo(curriculo).save(function(err) {
             if (err) throw err;
@@ -73,10 +31,6 @@ module.exports = function(app) {
         Curriculo.find({_id: req.params.id}, function(err, curriculo) {
             res.render('curriculo', {curriculo: curriculo});
         });
-        /*Curriculo.find({_id: req.params.id}, function(err, curriculo) {
-            console.log(curriculo[0].perfil.nome);
-            res.send('oi');
-        });*/
     })
 
     app.put('/curriculo/:id', function(req, res) {

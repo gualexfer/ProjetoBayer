@@ -59,7 +59,19 @@ function calculateAge (birthDate, otherDate) {
 }
 
 function adicionarIdioma() {
-    $('<div id="novoIdioma' + numeroDeIdiomas + '" class="container"><label for="idioma' + numeroDeIdiomas + '">Idioma: </label><input type = "text" class="form-control id="idioma' + numeroDeIdiomas + '" name="idioma' + numeroDeIdiomas + '" required><label for="fluencia">Nível de fluência: </label><select id="fluencia' + numeroDeIdiomas + '" class="form-control" name="fluencia' + numeroDeIdiomas + '"><option value="Básico">Básico</option><option value="Intermediário">Intermediário</option><option value="Avançado">Avançado</option><option value="Fluente">Fluente</option></select><label for="instituicaoDeEnsino' + numeroDeIdiomas + '">Instituição: </label><input type = "text" class="form-control id="instituicaoDeEnsino' + numeroDeIdiomas + '" name="instituicaoDeEnsino' + numeroDeIdiomas++ + '" required></div>').insertBefore("#experiencia");
+    let idiomas = document.getElementById('idiomas');
+    
+    $("#novoIdioma > [name='idioma'] > .form-group > #idioma").attr("name", "idiomas["+ numeroDeIdiomas +"][idioma]")
+    $("#novoIdioma > [name='fluencia'] > .form-group > .form-control").attr("name", "idiomas["+ numeroDeIdiomas +"][nivelDeFluencia]");
+    $("#novoIdioma > [name='instituicao'] > .form-group > #instituicaoDeEnsino").attr("name", "idiomas["+ numeroDeIdiomas +"][instituicao]");
+
+    let clone = document.getElementById('novoIdioma').cloneNode(true);
+    clone.setAttribute("id", "novoIdioma" + numeroDeIdiomas);
+    clone.setAttribute("name", "novoIdioma" + numeroDeIdiomas++);
+
+    idiomas.appendChild(clone);
+
+    clone.hidden = false;
 }
 
 function removerIdioma() {
