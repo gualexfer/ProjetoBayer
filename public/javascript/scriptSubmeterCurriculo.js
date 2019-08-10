@@ -7,17 +7,17 @@ $(function(e) {
         const cep = document.getElementById("cep").value;
         const url = "http://cep.republicavirtual.com.br/web_cep.php?cep=" + cep + "&formato=jsonp";
         jsonp(url, ({ resultado, uf, cidade, bairro, tipo_logradouro, logradouro }) => {
-        if (resultado == 1) {
-            const endereco = document.getElementById("endereco");
-            const city = document.getElementById("cidade");
-            const state = document.getElementById("estado");
-            const bair = document.getElementById("bairro");
-            endereco.value = tipo_logradouro + " " + logradouro;
-            city.value = cidade;
-            state.value = uf;
-            bair.value = bairro;
-        }
-    });
+            if (resultado == 1) {
+                const endereco = document.getElementById("endereco");
+                const city = document.getElementById("cidade");
+                const state = document.getElementById("estado");
+                const bair = document.getElementById("bairro");
+                endereco.value = tipo_logradouro + " " + logradouro;
+                city.value = cidade;
+                state.value = uf;
+                bair.value = bairro;
+            }
+        });
     })
 
 });
