@@ -20,13 +20,13 @@ $(function(e) {
         });
     })
 
-    $('[name="dataDeNascimento"]').focusout(function(e) {
-        if ($('[name="dataDeNascimento"]').val() != '') {
-            let nascimento = new Date($('[name="dataDeNascimento"]').val());
+    $('[name="perfil[dataDeNascimento]"]').focusout(function(e) {
+        if ($('[name="perfil[dataDeNascimento]"]').val() != '') {
+            let nascimento = new Date($('[name="perfil[dataDeNascimento]"]').val());
             let data = new Date();
             let idade = calculateAge(nascimento, data);
             if (idade > 0) {
-                $('[name="idade"]').val(idade);
+                $('[name="perfil[idade]"]').val(idade);
             }
         }
     });
