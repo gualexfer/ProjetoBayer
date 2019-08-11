@@ -161,31 +161,56 @@
 
         </form>
 
-        <div name="novoIdioma" id="novoIdioma" hidden>
-                <div class="form-row" name="idioma">
-                    <div class="form-group col-12">
-                        <label for="idioma">Idioma:</label>
-                        <input type="text" class="form-control" id="idioma" name="idiomas[0][idioma]">
-                    </div>
-                </div>
-                <div class="form-row" name="fluencia">
-                    <div class="form-group col-12">
-                        <label for="fluencia">Nível de fluência:</label>
-                        <select name="idiomas[0][nivelDeFluencia]" class="form-control">
-                            <option value="Básico">Básico</option>
-                            <option value="Intermediário">Intermediário</option>
-                            <option value="Avançado">Avançado</option>
-                            <option value="Fluente">Fluente</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-row" name="instituicao">
-                    <div class="form-group col-12">
-                        <label for="instituicaoDeEnsino">Instituição:</label>
-                        <input type="text" id="instituicaoDeEnsino" name="idiomas[0][instituicao]" class="form-control">
-                    </div>      
+        <div name="novoIdioma" hidden>
+            <div class="form-row" name="idioma">
+                <div class="form-group col-12">
+                    <label for="idioma">Idioma:</label>
+                    <input type="text" class="form-control" id="idioma" name="idiomas[0][idioma]">
                 </div>
             </div>
+            <div class="form-row" name="fluencia">
+                <div class="form-group col-12">
+                    <label for="fluencia">Nível de fluência:</label>
+                    <select name="idiomas[0][nivelDeFluencia]" class="form-control">
+                        <option value="Básico">Básico</option>
+                        <option value="Intermediário">Intermediário</option>
+                        <option value="Avançado">Avançado</option>
+                        <option value="Fluente">Fluente</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row" name="instituicao">
+                <div class="form-group col-12">
+                    <label for="instituicaoDeEnsino">Instituição:</label>
+                    <input type="text" id="instituicaoDeEnsino" name="idiomas[0][instituicao]" class="form-control">
+                </div>      
+            </div>
+        </div>
+
+        <div name="novaFormacao" class="container" hidden>
+            <div class="form-row">
+                <div class="form-group col">
+                    <label for="titulo">Título:</label>
+                    <input type="text" class="form-control" id="titulo" name="formacao[0][titulo]" required="">
+                </div>
+                <div class="form-group col">
+                    <label for="instituicao">Instituição:</label>
+                    <input type="text" id="instituicao" class="form-control" name="formacao[0][instituicao]" required="">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col">
+                    <label for="inicioDaFormacao">Ano de início:</label>
+                    <input type="number" id="inicioDaFormacao" class="form-control" name="formacao[0][inicioDaFormacao]" required="">
+                </div>
+                <div class="form-group col">
+                    <label for="fimDaFormacao">Ano de finalização:</label>
+                    <input type="number" id="fimDaFormacao" class="form-control" name="formacao[0][fimDaFormacao]" required="">
+                </div>
+            </div>
+            <label for="comentarios">Comentários:</label>
+            <textarea class="form-control" rows="5" id="comentarios" name="formacao[0][comentarios]"></textarea>
+        </div>
 
         <script src="../public/javascript/jquery-3.4.1.min.js"></script>
         <script src="../public/javascript/scriptSubmeterCurriculo.js"></script>

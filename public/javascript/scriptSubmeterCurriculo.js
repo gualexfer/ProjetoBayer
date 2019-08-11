@@ -61,12 +61,11 @@ function calculateAge (birthDate, otherDate) {
 function adicionarIdioma() {
     let idiomas = document.getElementById('idiomas');
     
-    $("#novoIdioma > [name='idioma'] > .form-group > #idioma").attr("name", "idiomas["+ numeroDeIdiomas +"][idioma]")
-    $("#novoIdioma > [name='fluencia'] > .form-group > .form-control").attr("name", "idiomas["+ numeroDeIdiomas +"][nivelDeFluencia]");
-    $("#novoIdioma > [name='instituicao'] > .form-group > #instituicaoDeEnsino").attr("name", "idiomas["+ numeroDeIdiomas +"][instituicao]");
+    $("[name='novoIdioma'] > [name='idioma'] > .form-group > #idioma").attr("name", "idiomas["+ numeroDeIdiomas +"][idioma]")
+    $("[name='novoIdioma'] > [name='fluencia'] > .form-group > .form-control").attr("name", "idiomas["+ numeroDeIdiomas +"][nivelDeFluencia]");
+    $("[name='novoIdioma'] > [name='instituicao'] > .form-group > #instituicaoDeEnsino").attr("name", "idiomas["+ numeroDeIdiomas +"][instituicao]");
 
-    let clone = document.getElementById('novoIdioma').cloneNode(true);
-    clone.setAttribute("id", "novoIdioma" + numeroDeIdiomas);
+    let clone = document.getElementsByName('novoIdioma')[0].cloneNode(true);
     clone.setAttribute("name", "novoIdioma" + numeroDeIdiomas++);
 
     idiomas.appendChild(clone);
@@ -83,7 +82,20 @@ function removerIdioma() {
 }
 
 function adicionarFormacao() {
-    $('<div id="novaFormacao' + numeroDeFormacoes + '" class="container"><div class="form-row"><div class="form-group col"><label for="titulo">Título:</label><input type="text" class="form-control" id="titulo' + numeroDeFormacoes + '" name="titulo' + numeroDeFormacoes + '" required></div><div class="form-group col"><label for="instituicao">Instituição:</label><input type="text" id="instituicao' + numeroDeFormacoes + '" class="form-control" name="instituicao' + numeroDeFormacoes + '" name="instituicao' + numeroDeFormacoes + '" required></div></div><div class="form-row"><div class="form-group col"><label for="inicioDaFormacao">Ano de início:</label><input type="number" id="inicioDaFormacao' + numeroDeFormacoes + '" class="form-control" name="inicioDaFormacao' + numeroDeFormacoes + '" required></div><div class="form-group col"><label for="fimDaFormacao">Ano de finalização:</label><input type="number" id="fimDaFormacao' + numeroDeFormacoes + '" class="form-control" name="fimDaFormacao' + numeroDeFormacoes + '" required></div></div><label for="comentarios">Comentários:</label><textarea class="form-control" rows="5" id="comentarios' + numeroDeFormacoes + '" class="form-control" name="comentarios' + numeroDeFormacoes++ + '"></textarea></div>').insertBefore("#idiomas");
+    let formacao = document.getElementById('formacao');
+
+    $("[name='novaFormacao'] > .form-row > .form-group > #titulo").attr("name", "formacao["+ numeroDeFormacoes +"][titulo]");
+    $("[name='novaFormacao'] > .form-row > .form-group > #instituicao").attr("name", "formacao["+ numeroDeFormacoes +"][instituicao]");
+    $("[name='novaFormacao'] > .form-row > .form-group > #inicioDaFormacao").attr("name", "formacao["+ numeroDeFormacoes +"][inicioDaFormacao]");
+    $("[name='novaFormacao'] > .form-row > .form-group > #fimDaFormacao").attr("name", "formacao["+ numeroDeFormacoes +"][fimDaFormacao]");
+    $("[name='novaFormacao'] > #comentarios").attr("name", "formacao["+ numeroDeFormacoes +"][comentarios]");
+
+    let clone = document.getElementsByName('novaFormacao')[0].cloneNode(true);
+    clone.setAttribute("name", "novaFormacao" + numeroDeFormacoes++);
+
+    formacao.appendChild(clone);
+
+    clone.hidden = false;
 }
 
 function removerFormacao(numero) {
