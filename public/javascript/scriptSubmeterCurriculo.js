@@ -3,7 +3,7 @@ let numeroDeFormacoes = 0;
 let numeroDeIdiomas = 0;
 
 $(function(e) {
-    $('[name="cep"]').on("change", function(e) {
+    $('[name="contato[cep]"]').on("change", function(e) {
         const cep = document.getElementById("cep").value;
         const url = "http://cep.republicavirtual.com.br/web_cep.php?cep=" + cep + "&formato=jsonp";
         jsonp(url, ({ resultado, uf, cidade, bairro, tipo_logradouro, logradouro }) => {
