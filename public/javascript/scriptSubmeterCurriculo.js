@@ -75,7 +75,7 @@ function adicionarIdioma() {
 
 function removerIdioma() {
     if (numeroDeIdiomas > 0) {
-        let idioma = "#novoIdioma" + (numeroDeIdiomas - 1);
+        let idioma = "[name='novoIdioma" + (numeroDeIdiomas - 1) + "']";
         $(idioma).remove();
         numeroDeIdiomas--;
     }
@@ -100,19 +100,32 @@ function adicionarFormacao() {
 
 function removerFormacao(numero) {
     if (numeroDeFormacoes > 0) {
-        let formacao = "#novaFormacao" + (numeroDeFormacoes - 1);
+        let formacao = "[name='novaFormacao" + (numeroDeFormacoes - 1) + "']";
         $(formacao).remove();
         numeroDeFormacoes--;
     }
 }
 
 function adicionarExperiencia() {
-    $('<div id="novaExperiencia' + numeroDeExperiencias + '" class="container"><div class="form-row"><div class="form-group col"><label for="cargo">Cargo:</label><input type="text" id="cargo' + numeroDeExperiencias + '" class="form-control" name="cargo' + numeroDeExperiencias + '" required></div><div class="form-group col"><label for="empresa">Empresa:</label><input type="text" id="empresa' + numeroDeExperiencias + '" class="form-control" name="empresa' + numeroDeExperiencias + '" required></div></div><div class="form-row"><div class="form-group col"><label for="inicioDaExperiencia">Ano de início*:</label><input type="number" id="inicioDaExperiencia' + numeroDeExperiencias + '" class="form-control" name="inicioDaExperiencia' + numeroDeExperiencias + '" required></div><div class="form-group col"><label for="fimDaExperiencia">Ano de fim*:</label><input type="number" id="fimDaExperiencia' + numeroDeExperiencias + '" class="form-control" name="fimDaExperiencia' + numeroDeExperiencias + '" required></div></div><label for="descricao">Descrição do cargo*:</label><textarea class="form-control" rows="5" id="descricao' + numeroDeExperiencias + '" class="form-control" name="descricao' + numeroDeExperiencias++ + '" required></textarea></div>').insertBefore("#adicionais");
+    let experiencia = document.getElementById('experiencia');
+
+    $("[name='novaExperiencia'] > .form-row > .form-group > #cargo").attr("name", "experiencia["+ numeroDeExperiencias +"][cargo]");
+    $("[name='novaExperiencia'] > .form-row > .form-group > #empresa").attr("name", "experiencia["+ numeroDeExperiencias +"][empresa]");
+    $("[name='novaExperiencia'] > .form-row > .form-group > #inicioDaExperiencia").attr("name", "experiencia["+ numeroDeExperiencias +"][inicioDaExperiencia]");
+    $("[name='novaExperiencia'] > .form-row > .form-group > #fimDaExperiencia").attr("name", "experiencia["+ numeroDeExperiencias +"][fimDaExperiencia]");
+    $("[name='novaExperiencia'] > #descricao").attr("name", "experiencia["+ numeroDeExperiencias +"][descricao]");
+
+    let clone = document.getElementsByName('novaExperiencia')[0].cloneNode(true);
+    clone.setAttribute("name", "novaExperiencia" + numeroDeExperiencias++);
+
+    experiencia.appendChild(clone);
+
+    clone.hidden = false;
 }
 
 function removerExperiencia(numero) {
     if (numeroDeExperiencias > 0) {
-        let experiencia = "#novaExperiencia" + (numeroDeExperiencias - 1);
+        let experiencia = "[name='novaExperiencia" + (numeroDeExperiencias - 1) + "']";
         $(experiencia).remove();
         numeroDeExperiencias--;
     }

@@ -191,26 +191,50 @@
             <div class="form-row">
                 <div class="form-group col">
                     <label for="titulo">Título:</label>
-                    <input type="text" class="form-control" id="titulo" name="formacao[0][titulo]" required="">
+                    <input type="text" class="form-control" id="titulo" name="formacao[0][titulo]" required>
                 </div>
                 <div class="form-group col">
                     <label for="instituicao">Instituição:</label>
-                    <input type="text" id="instituicao" class="form-control" name="formacao[0][instituicao]" required="">
+                    <input type="text" id="instituicao" class="form-control" name="formacao[0][instituicao]" required>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col">
                     <label for="inicioDaFormacao">Ano de início:</label>
-                    <input type="number" id="inicioDaFormacao" class="form-control" name="formacao[0][inicioDaFormacao]" required="">
+                    <input type="number" id="inicioDaFormacao" class="form-control" name="formacao[0][inicioDaFormacao]" required>
                 </div>
                 <div class="form-group col">
                     <label for="fimDaFormacao">Ano de finalização:</label>
-                    <input type="number" id="fimDaFormacao" class="form-control" name="formacao[0][fimDaFormacao]" required="">
+                    <input type="number" id="fimDaFormacao" class="form-control" name="formacao[0][fimDaFormacao]" required>
                 </div>
             </div>
             <label for="comentarios">Comentários:</label>
             <textarea class="form-control" rows="5" id="comentarios" name="formacao[0][comentarios]"></textarea>
         </div>
+
+        <div name="novaExperiencia" class="container" hidden>
+            <div class="form-row">
+                <div class="form-group col">
+                    <label for="cargo">Cargo:</label>
+                    <input type="text" id="cargo" class="form-control" name="experiencias[0][cargo]" required>
+                </div>
+                <div class="form-group col">
+                    <label for="empresa">Empresa:</label>
+                    <input type="text" id="empresa" class="form-control" name="experiencias[0][empresa]" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col">
+                    <label for="inicioDaExperiencia">Ano de início*:</label>
+                    <input type="number" id="inicioDaExperiencia" class="form-control" name="experiencias[0][inicioDaExperiencia]" required>
+                </div>
+                <div class="form-group col">
+                    <label for="fimDaExperiencia">Ano de fim*:</label>
+                    <input type="number" id="fimDaExperiencia" class="form-control" name="experiencias[0][fimDaExperiencia]" required>
+                </div>
+            </div>
+            <label for="descricao">Descrição do cargo*:</label>
+            <textarea class="form-control" rows="5" id="descricao" name="experiencias[0][descricao]" required></textarea></div>
 
         <script src="../public/javascript/jquery-3.4.1.min.js"></script>
         <script src="../public/javascript/scriptSubmeterCurriculo.js"></script>
