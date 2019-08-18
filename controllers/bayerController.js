@@ -14,11 +14,10 @@ module.exports = function(app) {
     app.post('/submeterCurriculo', urlencodedParser, function(req, res) {
         let curriculo = req.body;
 
-        let novoCurriculo = Curriculo(curriculo).save(function(err) {
+        Curriculo(curriculo).save(function(err) {
             if (err) throw err;
         });
         res.send("Seu currículo foi enviado com sucesso!");
-        console.log(curriculo);
     });
 
     app.get('/recrutador', function(req, res) {
@@ -34,12 +33,10 @@ module.exports = function(app) {
     })
 
     app.put('/curriculo/:id', function(req, res) {
-        Curriculo.findOneAndUpdate({_id: req.params.id}, {arquivado: true}).then(function(curriculo) {
-        });
+        Curriculo.findOneAndUpdate({_id: req.params.id}, {arquivado: true});
     });
 
     app.delete('/curriculo/:id', function(req, res) {
-        Curriculo.findByIdAndDelete({_id: req.params.id}).then(function(curriculo) {
-        });
+        Curriculo.findByIdAndDelete({_id: req.params.id});
     });
 }
