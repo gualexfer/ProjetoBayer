@@ -2,10 +2,15 @@ li {
     list-style-type: none;
 }
 
+h1{
+    text-align: center;
+}
+
 #listaBox{
     background-color:green;
-    overflow-y: scroll;
+    height: 600px;
     margin-right: 250px;
+    overflow-y: auto;
 }
 
 #listaCurriculo{
