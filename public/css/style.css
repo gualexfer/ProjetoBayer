@@ -1,15 +1,18 @@
-body {
-    background-color:dimgrey;
+li {
+    list-style-type: none;
 }
 
-.container{
-    background-color: whitesmoke;
-    border-radius:8px;
-    margin: 10px; 
-    padding: 15px; 
-    height: 100%;
-    font-family: Poppins-Regular, sans-serif;
-    width: 100%;
-    flex-wrap: wrap;
-    justify-content: center;
+#listaBox{
+    background-color:green;
+    overflow-y: scroll;
+    margin-right: 250px;
+}
+
+#listaCurriculo{
+    background-color:blueviolet;
+    height: 70px;
+    border-color: blue;
+    border-style: solid;
+    border-width:2px;
+    border-radius: 2px;
 }
