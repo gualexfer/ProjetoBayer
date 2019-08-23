@@ -12,24 +12,30 @@
     </head>
     <body>
         <h1>Banco de Currículos:</h1>
-
-        <label for="exibirArquivados">Exibir arquivados</label>
-        <input type="checkbox" name="exibirArquivados" id="exibirArquivados" value="exibirArquivados">
-
+        <div class="container">
+            <div class="btn-group btn-group-toggle row" data-toggle="buttons">
+                <label for="exibirArquivados" class="btn btn-secondary col-4">
+                    <input type="radio" name="exibirArquivados" id="exibirArquivados"> Exibir arquivados
+                </label>
+                <label for="exibirArquivados" class="btn btn-secondary col-4">
+                    <input type="radio" name="exibirNaoArquivados" id="exibirNaoArquivados"> Exibir não arquivados
+                </label>
+            </div>
+        </div>
         <div id="curriculosNaoArquivados">
             <h2>Não arquivados:</h2>
-                <ul id="naoArquivados">
-                    <div class = "container align-items-center" id="listaBox">
+                <ul id="naoArquivados"> 
+                    <div class="container py-3 overflow-auto">
                     <% curriculos.forEach(function(curriculo) { %>
                         <% if (!curriculo.arquivado) { %>
-                                <div class ="row" id="listaCurriculo">
-                                    <div class = "col-5 col-md-5 col-xl-8">    
+                                <div class ="row finalBorder" id="listaCurriculo">
+                                    <div class = "col-4 col-lg-8 align-self-center">    
                                         <li><a href="/curriculo/<%= curriculo._id %>"><%= curriculo.perfil.nome %></a></li>
                                     </div>
-                                    <div class = "col-2 ">
+                                    <div class = "col-4 col-lg-2 align-self-center">
                                         <li><button onclick="arquivarCurriculo('<%= curriculo._id %>')">Arquivar</button></li>
                                     </div>
-                                    <div class = "col-2 ">
+                                    <div class = "col-4 col-lg-2 align-self-center">
                                         <li><button onclick="deletarCurriculo('<%= curriculo._id %>')">Deletar</button></li>
                                     </div>
                                 </div>
