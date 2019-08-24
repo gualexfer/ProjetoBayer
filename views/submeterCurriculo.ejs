@@ -6,14 +6,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../public/css/style.css" type="text/css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     </head>
     <body>
-        <form name="curriculo" class="container" method="POST" action="/submeterCurriculo">
+        <form name="curriculo" class="container " method="POST" action="/submeterCurriculo" id="pagperfil">
             <div id="perfil">
-            <h1>Perfil:</h1>
+                <div class="row m-2 text-white">
+                    <h1 class="bg-primary p-1 col-2 border border-primary">Perfil</h1>
+                </div>
             <div class="form-row">
                 <div class="form-group col-12 col-md-5">
                     <label for="nome">Nome completo*:</label>
@@ -26,7 +29,7 @@
                     <input type="hidden" class="form-control" name="perfil[idade]" required>
                 <div class="form-group col-4 col-md-2">
                     <label for="estadoCivil">Estado civil*:</label>
-                    <select class="form-control" name="perfil[estadoCivil]" required>
+                    <select class="form-control selecao" name="perfil[estadoCivil]" required>
                             <option>Solteiro(a)</option>
                             <option>Casado(a)</option>
                             <option>Divorciado(a)</option>
@@ -117,32 +120,36 @@
             </div>
 
             <div id="formacao">
-                <div class = "form-group">
-                    <h1>Formação:</h1>
+                <div class="row m-2 text-white">
+                    <h1 class="bg-primary p-1 col-3 border border-primary">Formação</h1>
+                </div>
                     <button type="button" value="Adicionar formação" onclick="adicionarFormacao()" class="btn btn-outline-secondary">Adicionar formação</button>
                     <button type="button" value="Remover formação" onclick="removerFormacao()" class="btn btn-outline-secondary">Remover formação</button>
                 </div>
             </div>
 
             <div id="idiomas">
-                <div class = "form-group">
-                    <h1>Idioma:</h1>
+                    <div class="row m-2 text-white">
+                    <h1 class="bg-primary p-1 col-2 border border-primary">Idiomas</h1>
+                </div>
                     <button type="button" value="Adicionar idioma" onclick="adicionarIdioma()" class="btn btn-outline-secondary">Adicionar idioma</button>
                     <button type="button" value="Remover idioma" onclick="removerIdioma()" class="btn btn-outline-secondary">Remover idioma</button>
                 </div>    
             </div>
 
             <div id="experiencia">
-                <div class = "form-group">    
-                    <h1>Experiências:</h1>
+                    <div class="row m-2 text-white">
+                    <h1 class="bg-primary p-1 col-3 border border-primary">experiencia</h1>
+                </div>
                     <button type="button" value="Adicionar experiência" onclick="adicionarExperiencia()" class="btn btn-outline-secondary">Adicionar experiência</button>
                     <button type="button" value="Remover experiencia" onclick="removerExperiencia()" class="btn btn-outline-secondary">Remover experiencia</button>
                 </div>
             </div>
 
             <div id="adicionais">
-                <div class = "form-group">
-                    <h1>Informações adicionais:</h1>
+                    <div class="row m-2 text-white">
+                    <h1 class="bg-primary p-1 col-3 border border-primary">adicionais</h1>
+                </div>
                     <textarea class="form-control" rows="5" name="informacoesAdicionais" placeholder="Insira quaisquer informações que achar pertinentes."></textarea>
                 </div>    
             </div>
