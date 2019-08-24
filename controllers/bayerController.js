@@ -4,6 +4,8 @@ const Curriculo = require('../models/curriculo');
 
 mongoose.connect('mongodb+srv://bayer:bayer@cluster0-mfkxs.mongodb.net/test?retryWrites=true&w=majority', {useNewUrlParser: true});
 
+mongoose.set('useFindAndModify', false);
+
 const urlencodedParser = bodyParser.urlencoded( {extended: true} );
 
 module.exports = function(app) {
@@ -33,10 +35,12 @@ module.exports = function(app) {
     })
 
     app.put('/curriculo/:id', function(req, res) {
-        Curriculo.findOneAndUpdate({_id: req.params.id}, {arquivado: true});
+        Curriculo.findOneAndUpdate({_id: req.params.id}, {arquivado: true})
+        .then(curriculo => {});
     });
 
     app.delete('/curriculo/:id', function(req, res) {
-        Curriculo.findByIdAndDelete({_id: req.params.id});
+        Curriculo.findByIdAndDelete({_id: req.params.id})
+        .then(curriculo => {});
     });
 }
