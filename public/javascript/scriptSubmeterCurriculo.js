@@ -109,11 +109,11 @@ function removerFormacao(numero) {
 function adicionarExperiencia() {
     let experiencia = document.getElementById('experiencia');
 
-    $("[name='novaExperiencia'] > .form-row > .form-group > #cargo").attr("name", "experiencia["+ numeroDeExperiencias +"][cargo]");
-    $("[name='novaExperiencia'] > .form-row > .form-group > #empresa").attr("name", "experiencia["+ numeroDeExperiencias +"][empresa]");
-    $("[name='novaExperiencia'] > .form-row > .form-group > #inicioDaExperiencia").attr("name", "experiencia["+ numeroDeExperiencias +"][inicioDaExperiencia]");
-    $("[name='novaExperiencia'] > .form-row > .form-group > #fimDaExperiencia").attr("name", "experiencia["+ numeroDeExperiencias +"][fimDaExperiencia]");
-    $("[name='novaExperiencia'] > #descricao").attr("name", "experiencia["+ numeroDeExperiencias +"][descricao]");
+    $("[name='novaExperiencia'] > .form-row > .form-group > #cargo").attr("name", "experiencias["+ numeroDeExperiencias +"][cargo]");
+    $("[name='novaExperiencia'] > .form-row > .form-group > #empresa").attr("name", "experiencias["+ numeroDeExperiencias +"][empresa]");
+    $("[name='novaExperiencia'] > .form-row > .form-group > #inicioDaExperiencia").attr("name", "experiencias["+ numeroDeExperiencias +"][inicioDaExperiencia]");
+    $("[name='novaExperiencia'] > .form-row > .form-group > #fimDaExperiencia").attr("name", "experiencias["+ numeroDeExperiencias +"][fimDaExperiencia]");
+    $("[name='novaExperiencia'] > #descricao").attr("name", "experiencias["+ numeroDeExperiencias +"][descricao]");
 
     let clone = document.getElementsByName('novaExperiencia')[0].cloneNode(true);
     clone.setAttribute("name", "novaExperiencia" + numeroDeExperiencias++);

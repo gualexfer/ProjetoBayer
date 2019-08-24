@@ -20,7 +20,7 @@
             <p>Website: <%= curriculo[0].contato.website %></p>
         </div>
         <div id="formacao">
-            <h2>Formações</h2>
+            <h2>Formação</h2>
             <% curriculo[0].formacao.forEach(function(formacao) { %>
                 <p><%= formacao.instituicao %> (<%= formacao.inicioDaFormacao %> - <%= formacao.fimDaFormacao %>)</p>
                 <p><%= formacao.titulo %></p>
