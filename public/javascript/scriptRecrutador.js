@@ -13,8 +13,9 @@ function arquivarCurriculo(curriculoId) {
     $.ajax({
         type: 'PUT',
         url: 'curriculo/' + curriculoId
-    }).then(res => {window.location = window.location.pathname;});
+    });
 
+    location.reload(true);
 }
 
 function deletarCurriculo(curriculoId) {
@@ -23,5 +24,5 @@ function deletarCurriculo(curriculoId) {
         url: 'curriculo/' + curriculoId
     });
 
-    window.location = window.location.pathname;
+    location.reload(true);
 }
