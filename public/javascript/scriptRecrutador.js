@@ -1,9 +1,11 @@
 $(function() {
-    $('#exibirArquivados').on('change', function(e) {
-        if (this.checked)
-            $("#curriculosArquivados").css('visibility', 'visible');
-        else
-            $("#curriculosArquivados").css('visibility', 'hidden');
+    $('label[for="exibirArquivados"]').click(function(e){
+        $("#curriculosArquivados").css('display', 'inline');
+        $("#curriculosNaoArquivados").css('display', 'none');
+    });
+    $('label[for="exibirNaoArquivados"]').click(function(e){
+        $("#curriculosArquivados").css('display', 'none');
+        $("#curriculosNaoArquivados").css('display', 'inline');
     });
 });
 
@@ -11,9 +13,8 @@ function arquivarCurriculo(curriculoId) {
     $.ajax({
         type: 'PUT',
         url: 'curriculo/' + curriculoId
-    });
+    }).then(res => {window.location = window.location.pathname;});
 
-    window.location = window.location.pathname;
 }
 
 function deletarCurriculo(curriculoId) {

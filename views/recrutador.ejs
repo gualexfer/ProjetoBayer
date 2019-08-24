@@ -17,7 +17,7 @@
                 <label for="exibirArquivados" class="btn btn-secondary col-4">
                     <input type="radio" name="exibirArquivados" id="exibirArquivados"> Exibir arquivados
                 </label>
-                <label for="exibirArquivados" class="btn btn-secondary col-4">
+                <label for="exibirNaoArquivados" class="btn btn-secondary col-4">
                     <input type="radio" name="exibirNaoArquivados" id="exibirNaoArquivados"> Exibir não arquivados
                 </label>
             </div>
@@ -45,7 +45,7 @@
                 </ul>
         </div>
 
-        <div id="curriculosArquivados" style="visibility: hidden">
+        <div id="curriculosArquivados">
             <h2>Arquivados:</h2>
             <ul id="arquivados">
                 <% curriculos.forEach(function(curriculo) { %>

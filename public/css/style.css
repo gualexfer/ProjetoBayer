@@ -43,12 +43,17 @@ input[type=text], input[type=email], input[type=date], input[type=url]{
     -moz-box-shadow: 0px 3px 5px 0px rgb(7, 7, 7);
     box-shadow: 0px 3px 5px 0px rgb(0, 0, 0);
 }
+
 input[type=text]:hover, textarea:hover, input[type=email]:hover, textarea:hover, input[type=date]:hover, textarea:hover,input[type=url]:hover, textarea:hover{ 
     background: #ffffff;
     -webkit-box-shadow: 0px 3px 5px 0px rgb(2, 2, 2);
     -moz-box-shadow: 0px 3px 5px 0px rgb(7, 7, 7);
     box-shadow: 0px 3px 5px 0px rgb(0, 0, 0); 
     border:3px solid white;
+}
+
+#curriculosArquivados {
+    display: none;
 }
 
 /*h1 {
