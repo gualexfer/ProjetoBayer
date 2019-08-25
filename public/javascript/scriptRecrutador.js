@@ -1,11 +1,22 @@
+let selecionados = [];
+
 $(function() {
     $('label[for="exibirArquivados"]').click(function(e){
         $("#curriculosArquivados").css('display', 'inline');
         $("#curriculosNaoArquivados").css('display', 'none');
     });
+
     $('label[for="exibirNaoArquivados"]').click(function(e){
         $("#curriculosArquivados").css('display', 'none');
         $("#curriculosNaoArquivados").css('display', 'inline');
+    });
+
+    $('input[type="checkbox"]').on('change', function(e) {
+        if (this.checked) {
+            selecionados.push(this.id);
+        } else {
+            selecionados.splice(selecionados.indexOf(this.id), 1);
+        }
     });
 });
 
