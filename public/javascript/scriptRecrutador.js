@@ -1,12 +1,16 @@
 let selecionados = [];
 
 $(function() {
-    $('label[for="exibirArquivados"]').click(function(e){
+    $(document).ajaxStop(function(e) {
+        location.reload(true); 
+    });
+
+    $('label[for="exibirArquivados"]').click(function(e) {
         $("#curriculosArquivados").css('display', 'inline');
         $("#curriculosNaoArquivados").css('display', 'none');
     });
 
-    $('label[for="exibirNaoArquivados"]').click(function(e){
+    $('label[for="exibirNaoArquivados"]').click(function(e) {
         $("#curriculosArquivados").css('display', 'none');
         $("#curriculosNaoArquivados").css('display', 'inline');
     });
@@ -26,7 +30,7 @@ function arquivarCurriculo(curriculoId) {
         method: 'PUT',
         url: 'curriculo/' + curriculoId + '/arquivar/',
         success: function(data) {
-            location.reload(true);
+            
         }
     });
 }
@@ -37,7 +41,7 @@ function desarquivarCurriculo(curriculoId) {
         method: 'PUT',
         url: 'curriculo/' + curriculoId + '/desarquivar/',
         success: function(data) {
-            location.reload(true);
+            
         }
     });
 }
@@ -47,7 +51,19 @@ function deletarCurriculo(curriculoId) {
         type: 'DELETE',
         url: 'curriculo/' + curriculoId,
         success: function(data) {
-            location.reload(true);
+            
         }
+    });
+}
+
+function arquivarSelecionados() {
+    selecionados.forEach(selecionado => {
+        arquivarCurriculo(selecionado);
+    });
+}
+
+function deletarSelecionados() {
+    selecionados.forEach(selecionado => {
+        deletarCurriculo(selecionado);
     });
 }
