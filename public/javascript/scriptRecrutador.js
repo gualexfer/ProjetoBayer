@@ -8,12 +8,14 @@ $(function() {
     $('label[for="exibirArquivados"]').click(function(e) {
         $("#curriculosArquivados").css('display', 'inline');
         $("#curriculosNaoArquivados").css('display', 'none');
+        $("input[value='Arquivar selecionados']").attr("onClick", "desarquivarSelecionados()");
         $("input[value='Arquivar selecionados']").val("Desarquivar selecionados");
     });
 
     $('label[for="exibirNaoArquivados"]').click(function(e) {
         $("#curriculosArquivados").css('display', 'none');
         $("#curriculosNaoArquivados").css('display', 'inline');
+        $("input[value='Desarquivar selecionados']").attr("onClick", "arquivarSelecionados()");
         $("input[value='Desarquivar selecionados']").val("Arquivar selecionados");
     });
 
@@ -67,5 +69,11 @@ function arquivarSelecionados() {
 function deletarSelecionados() {
     selecionados.forEach(selecionado => {
         deletarCurriculo(selecionado);
+    });
+}
+
+function desarquivarSelecionados() {
+    selecionados.forEach(selecionado => {
+        desarquivarCurriculo(selecionado);
     });
 }

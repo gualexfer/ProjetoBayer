@@ -57,7 +57,10 @@
                     <% curriculos.forEach(function(curriculo) { %>
                         <% if (curriculo.arquivado) { %>
                             <div class ="row finalBorder" id="listaCurriculo">
-                                <div class = "col-4 col-lg-8 align-self-center">    
+                                <div class = "col-1 align-self-center">
+                                    <li><input type="checkbox" id="<%= curriculo._id %>"></li>
+                                </div>
+                                <div class = "col-4 col-lg-7 align-self-center">    
                                     <li><a href="/curriculo/<%= curriculo._id %>"><%= curriculo.perfil.nome %></a></li>
                                 </div>
                                 <div class = "col-4 col-lg-2 align-self-center">
