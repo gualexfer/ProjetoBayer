@@ -130,10 +130,3 @@ function removerExperiencia(numero) {
         numeroDeExperiencias--;
     }
 }
-
-function arquivarCurriculo(curriculoId) {
-    $.ajax({
-        type: 'PUT',
-        url: 'curriculo/' + curriculoId
-    });
-}

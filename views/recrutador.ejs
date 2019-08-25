@@ -50,8 +50,17 @@
             <ul id="arquivados">
                 <% curriculos.forEach(function(curriculo) { %>
                     <% if (curriculo.arquivado) { %>
-                        <li><a href="/curriculo/<%= curriculo._id %>"><%= curriculo.perfil.nome %></a></li>
-                        <li><button onclick="deletarCurriculo('<%= curriculo._id %>')">Deletar</button></li>
+                        <div class ="row finalBorder" id="listaCurriculo">
+                            <div class = "col-4 col-lg-8 align-self-center">    
+                                <li><a href="/curriculo/<%= curriculo._id %>"><%= curriculo.perfil.nome %></a></li>
+                            </div>
+                            <div class = "col-4 col-lg-2 align-self-center">
+                                <li><button onclick="desarquivarCurriculo('<%= curriculo._id %>')">Desarquivar</button></li>
+                            </div>
+                            <div class = "col-4 col-lg-2 align-self-center">
+                                <li><button onclick="deletarCurriculo('<%= curriculo._id %>')">Deletar</button></li>
+                            </div>
+                        </div>
                     <% } %>
                 <% }); %>
             </ul>

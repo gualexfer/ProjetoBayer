@@ -11,8 +11,19 @@ $(function() {
 
 function arquivarCurriculo(curriculoId) {
     $.ajax({
-        type: 'PUT',
-        url: 'curriculo/' + curriculoId
+        type: 'ARQUIVAR',
+        method: 'PUT',
+        url: 'curriculo/' + curriculoId + '/arquivar/'
+    });
+
+    location.reload(true);
+}
+
+function desarquivarCurriculo(curriculoId) {
+    $.ajax({
+        type: 'DESARQUIVAR',
+        method: 'PUT',
+        url: 'curriculo/' + curriculoId + '/desarquivar/'
     });
 
     location.reload(true);
