@@ -24,7 +24,7 @@ $(function(e) {
         if ($('[name="perfil[dataDeNascimento]"]').val() != '') {
             let nascimento = new Date($('[name="perfil[dataDeNascimento]"]').val());
             let data = new Date();
-            let idade = calculateAge(nascimento, data);
+            let idade = calcularIdade(nascimento, data);
             if (idade > 0) {
                 $('[name="perfil[idade]"]').val(idade);
             }
@@ -44,18 +44,18 @@ function jsonp(url, callback) {
     document.body.appendChild(script);
 }
 
-function calculateAge (birthDate, otherDate) {
-    birthDate = new Date(birthDate);
-    otherDate = new Date(otherDate);
+function calcularIdade(dataDeNascimento, dataDeHoje) {
+    dataDeHoje = new Date(dataDeHoje);
+    dataDeNascimento = new Date(dataDeNascimento);
 
-    var years = (otherDate.getFullYear() - birthDate.getFullYear());
+    var idade = (dataDeHoje.getFullYear() - dataDeNascimento.getFullYear());
 
-    if (otherDate.getMonth() < birthDate.getMonth() || 
-        otherDate.getMonth() == birthDate.getMonth() && otherDate.getDate() < parseInt(birthDate.getDate() + 1)) {
-        years--;
+    if (dataDeHoje.getMonth() < dataDeNascimento.getMonth() || 
+        dataDeHoje.getMonth() == dataDeNascimento.getMonth() && dataDeHoje.getDate() < parseInt(dataDeNascimento.getDate() + 1)) {
+        idade--;
     }
 
-    return years;
+    return idade;
 }
 
 function adicionarIdioma() {
