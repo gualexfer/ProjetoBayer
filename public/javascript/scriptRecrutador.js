@@ -13,27 +13,30 @@ function arquivarCurriculo(curriculoId) {
     $.ajax({
         type: 'ARQUIVAR',
         method: 'PUT',
-        url: 'curriculo/' + curriculoId + '/arquivar/'
+        url: 'curriculo/' + curriculoId + '/arquivar/',
+        success: function(data) {
+            location.reload(true);
+        }
     });
-
-    location.reload(true);
 }
 
 function desarquivarCurriculo(curriculoId) {
     $.ajax({
         type: 'DESARQUIVAR',
         method: 'PUT',
-        url: 'curriculo/' + curriculoId + '/desarquivar/'
+        url: 'curriculo/' + curriculoId + '/desarquivar/',
+        success: function(data) {
+            location.reload(true);
+        }
     });
-
-    location.reload(true);
 }
 
 function deletarCurriculo(curriculoId) {
     $.ajax({
         type: 'DELETE',
-        url: 'curriculo/' + curriculoId
+        url: 'curriculo/' + curriculoId,
+        success: function(data) {
+            location.reload(true);
+        }
     });
-
-    location.reload(true);
 }

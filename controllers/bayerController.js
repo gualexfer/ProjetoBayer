@@ -38,16 +38,16 @@ module.exports = function(app) {
 
     app.put('/curriculo/:id/arquivar', function(req, res) {
         Curriculo.findOneAndUpdate({_id: req.params.id}, {arquivado: true})
-        .then(curriculo => {});
+        .then(curriculo => {res.send(curriculo)});
     });
 
     app.put('/curriculo/:id/desarquivar', function(req, res) {
         Curriculo.findOneAndUpdate({_id: req.params.id}, {arquivado: false})
-        .then(curriculo => {});
+        .then(curriculo => {res.send(curriculo)});
     });
 
     app.delete('/curriculo/:id', function(req, res) {
         Curriculo.findByIdAndDelete({_id: req.params.id})
-        .then(curriculo => {});
+        .then(curriculo => {res.send(curriculo)});
     });
 }
