@@ -8,11 +8,13 @@ $(function() {
     $('label[for="exibirArquivados"]').click(function(e) {
         $("#curriculosArquivados").css('display', 'inline');
         $("#curriculosNaoArquivados").css('display', 'none');
+        $("input[value='Arquivar selecionados']").val("Desarquivar selecionados");
     });
 
     $('label[for="exibirNaoArquivados"]').click(function(e) {
         $("#curriculosArquivados").css('display', 'none');
         $("#curriculosNaoArquivados").css('display', 'inline');
+        $("input[value='Desarquivar selecionados']").val("Arquivar selecionados");
     });
 
     $('input[type="checkbox"]').on('change', function(e) {
