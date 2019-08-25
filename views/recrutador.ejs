@@ -26,21 +26,21 @@
             <h2>Não arquivados:</h2>
                 <ul id="naoArquivados"> 
                     <div class="container py-3 overflow-auto">
-                    <% curriculos.forEach(function(curriculo) { %>
-                        <% if (!curriculo.arquivado) { %>
-                                <div class ="row finalBorder" id="listaCurriculo">
-                                    <div class = "col-4 col-lg-8 align-self-center">    
-                                        <li><a href="/curriculo/<%= curriculo._id %>"><%= curriculo.perfil.nome %></a></li>
+                        <% curriculos.forEach(function(curriculo) { %>
+                            <% if (!curriculo.arquivado) { %>
+                                    <div class ="row finalBorder" id="listaCurriculo">
+                                        <div class = "col-4 col-lg-8 align-self-center">    
+                                            <li><a href="/curriculo/<%= curriculo._id %>"><%= curriculo.perfil.nome %></a></li>
+                                        </div>
+                                        <div class = "col-4 col-lg-2 align-self-center">
+                                            <li><button onclick="arquivarCurriculo('<%= curriculo._id %>')">Arquivar</button></li>
+                                        </div>
+                                        <div class = "col-4 col-lg-2 align-self-center">
+                                            <li><button onclick="deletarCurriculo('<%= curriculo._id %>')">Deletar</button></li>
+                                        </div>
                                     </div>
-                                    <div class = "col-4 col-lg-2 align-self-center">
-                                        <li><button onclick="arquivarCurriculo('<%= curriculo._id %>')">Arquivar</button></li>
-                                    </div>
-                                    <div class = "col-4 col-lg-2 align-self-center">
-                                        <li><button onclick="deletarCurriculo('<%= curriculo._id %>')">Deletar</button></li>
-                                    </div>
-                                </div>
-                        <% } %>
-                    <% }); %>
+                            <% } %>
+                        <% }); %>
                     </div>            
                 </ul>
         </div>
@@ -48,21 +48,23 @@
         <div id="curriculosArquivados">
             <h2>Arquivados:</h2>
             <ul id="arquivados">
-                <% curriculos.forEach(function(curriculo) { %>
-                    <% if (curriculo.arquivado) { %>
-                        <div class ="row finalBorder" id="listaCurriculo">
-                            <div class = "col-4 col-lg-8 align-self-center">    
-                                <li><a href="/curriculo/<%= curriculo._id %>"><%= curriculo.perfil.nome %></a></li>
+                <div class="container py-3 overflow-auto">
+                    <% curriculos.forEach(function(curriculo) { %>
+                        <% if (curriculo.arquivado) { %>
+                            <div class ="row finalBorder" id="listaCurriculo">
+                                <div class = "col-4 col-lg-8 align-self-center">    
+                                    <li><a href="/curriculo/<%= curriculo._id %>"><%= curriculo.perfil.nome %></a></li>
+                                </div>
+                                <div class = "col-4 col-lg-2 align-self-center">
+                                    <li><button onclick="desarquivarCurriculo('<%= curriculo._id %>')">Desarquivar</button></li>
+                                </div>
+                                <div class = "col-4 col-lg-2 align-self-center">
+                                    <li><button onclick="deletarCurriculo('<%= curriculo._id %>')">Deletar</button></li>
+                                </div>
                             </div>
-                            <div class = "col-4 col-lg-2 align-self-center">
-                                <li><button onclick="desarquivarCurriculo('<%= curriculo._id %>')">Desarquivar</button></li>
-                            </div>
-                            <div class = "col-4 col-lg-2 align-self-center">
-                                <li><button onclick="deletarCurriculo('<%= curriculo._id %>')">Deletar</button></li>
-                            </div>
-                        </div>
-                    <% } %>
-                <% }); %>
+                        <% } %>
+                    <% }); %>
+                </div>
             </ul>
         </div>
 
