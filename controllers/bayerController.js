@@ -15,8 +15,6 @@ module.exports = function(app) {
 
     app.post('/submeterCurriculo', urlencodedParser, function(req, res) {
         let curriculo = req.body;
-        console.log('-----recebido:-------')
-        console.log(curriculo);
 
         Curriculo(curriculo).save(function(err) {
             if (err) throw err;
