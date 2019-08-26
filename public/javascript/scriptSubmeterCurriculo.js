@@ -20,16 +20,16 @@ $(function(e) {
         });
     })
 
-    $('[name="perfil[dataDeNascimento]"]').focusout(function(e) {
-        if ($('[name="perfil[dataDeNascimento]"]').val() != '') {
-            let nascimento = new Date($('[name="perfil[dataDeNascimento]"]').val());
-            let data = new Date();
-            let idade = calcularIdade(nascimento, data);
-            if (idade > 0) {
-                $('[name="perfil[idade]"]').val(idade);
-            }
-        }
-    });
+    // $('[name="perfil[dataDeNascimento]"]').focusout(function(e) {
+    //     if ($('[name="perfil[dataDeNascimento]"]').val() != '') {
+    //         let nascimento = new Date($('[name="perfil[dataDeNascimento]"]').val());
+    //         let data = new Date();
+    //         let idade = calcularIdade(nascimento, data);
+    //         if (idade > 0) {
+    //             $('[name="perfil[idade]"]').val(idade);
+    //         }
+    //     }
+    // });
 });
 
 function jsonp(url, callback) {
