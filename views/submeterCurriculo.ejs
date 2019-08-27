@@ -4,7 +4,7 @@
         <title>Talent Acquisiton</title>
         <meta charset='utf-8'>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="../public/css/style.css" type="text/css">
+        <link rel="stylesheet" href="../public/css/styleSubmeterCurriculo.css" type="text/css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -12,6 +12,13 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     </head>
     <body>
+        <!-- Image and text -->
+            <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" href="#">
+          <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+          Bayer
+        </a>
+      </nav>   
         <form name="curriculo" class="container " method="POST" action="/submeterCurriculo" id="pagperfil">
             <div id="perfil">
                 <div class="row m-2 text-white">
@@ -97,7 +104,7 @@
             </div>
             <div id="idiomas">
                     <div class="row m-2 text-white">
-                    <h1 class="bg-primary p-1 col-2 border border-primary">Idiomas</h1>
+                    <h1 class="bg-primary p-1 col-3 border border-primary">Idiomas</h1>
                 </div>
                     <button type="button" value="Adicionar idioma" onclick="adicionarIdioma()" class="btn btn-outline-secondary">Adicionar idioma</button>
                     <button type="button" value="Remover idioma" onclick="removerIdioma()" class="btn btn-outline-secondary">Remover idioma</button>
@@ -106,7 +113,7 @@
 
             <div id="experiencia">
                     <div class="row m-2 text-white">
-                    <h1 class="bg-primary p-1 col-3 border border-primary">Experiências</h1>
+                    <h1 class="bg-primary p-1 col-4 border border-primary">Experiências</h1>
                 </div>
                     <button type="button" value="Adicionar experiência" onclick="adicionarExperiencia()" class="btn btn-outline-secondary">Adicionar experiência</button>
                     <button type="button" value="Remover experiencia" onclick="removerExperiencia()" class="btn btn-outline-secondary">Remover experiencia</button>
@@ -115,7 +122,7 @@
 
             <div id="adicionais">
                 <div class="row m-2 text-white">
-                <h1 class="bg-primary p-1 col-3 border border-primary">Informações adicionais</h1>
+                <h1 class="bg-primary p-1 col-4 border border-primary">Informações adicionais</h1>
                 </div>
                     <textarea class="form-control" rows="5" name="informacoesAdicionais" placeholder="Insira quaisquer informações que achar pertinentes."></textarea>
                 </div>    
