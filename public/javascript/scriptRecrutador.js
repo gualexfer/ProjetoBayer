@@ -5,14 +5,14 @@ $(function() {
         location.reload(true); 
     });
 
-    $('label[for="exibirArquivados"]').click(function(e) {
+    $('#exibirArquivados').click(function(e) {
         $("#curriculosArquivados").css('display', 'inline');
         $("#curriculosNaoArquivados").css('display', 'none');
         $("input[value='Arquivar selecionados']").attr("onClick", "desarquivarSelecionados()");
         $("input[value='Arquivar selecionados']").val("Desarquivar selecionados");
     });
 
-    $('label[for="exibirNaoArquivados"]').click(function(e) {
+    $('#exibirNaoArquivados').click(function(e) {
         $("#curriculosArquivados").css('display', 'none');
         $("#curriculosNaoArquivados").css('display', 'inline');
         $("input[value='Desarquivar selecionados']").attr("onClick", "arquivarSelecionados()");
@@ -25,6 +25,11 @@ $(function() {
         } else {
             selecionados.splice(selecionados.indexOf(this.id), 1);
         }
+    });
+
+    $('.activable').on('click', function(e) {
+        $('.row').find('.active').removeClass('active');
+        $(this).addClass("active");
     });
 });
 
