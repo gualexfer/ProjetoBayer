@@ -11,7 +11,7 @@ ul {
 }
 
 body{
-    background-image: linear-gradient(140deg,#3d658b,#35415c,#19284d) !important;
+    background-image: linear-gradient(540deg,#0a2d61,#35415c,#12772c,#ffffff) !important;
     padding-bottom: 2%;
 }
 body form{
@@ -28,6 +28,7 @@ body form{
 }
 
 .navbar-light {
+    background-image: linear-gradient(240deg,#0a2d61,#35415c,#12772c, #ffffff) !important;
     background-color: #777777;
  }
 
@@ -71,7 +72,7 @@ input[type=text]:hover, textarea:hover, input[type=email]:hover, textarea:hover,
     -webkit-box-shadow: 0px 3px 5px 0px rgb(2, 2, 2);
     -moz-box-shadow: 0px 3px 5px 0px rgb(7, 7, 7);
     box-shadow: 0px 3px 5px 0px rgb(0, 0, 0); 
-    border:3px solid white;
+    border:1px solid #0099ff;
 }
 
 #curriculosArquivados {
@@ -79,7 +80,6 @@ input[type=text]:hover, textarea:hover, input[type=email]:hover, textarea:hover,
 }
 
 h1 {
-   
     border-radius:4px;
     -moz-border-radius:4px;
     -webkit-border-radius:10px;
