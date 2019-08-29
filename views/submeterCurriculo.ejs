@@ -22,38 +22,38 @@
         <form name="curriculo" class="container " method="POST" action="/submeterCurriculo" id="pagperfil">
             <div id="perfil">
                 <div class="row m-2 text-white">
-                    <h1 class="bg-primary p-1 col-2 border border-primary">Perfil</h1>
+                    <h1 class="bg-primary p-1 col-12 border border-primary">Perfil</h1>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-12 col-md-5">
+                    <div class="form-group col-12 col-lg-9">
                          <label>Nome*</label>
                         <input type="text" class="form-control" placeholder="Nome Completo*" name="perfil[nome]" required>
                     </div>
-                    <div class="form-group col-4 col-md-2">
+                    <div class="form-group col-12 col-lg-3">
                         <label>Data de nascimento*</label>
                         <input type="date" class="form-control" name="perfil[dataDeNascimento]" required>
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-4">
+                    <div class="form-group col-12">
                         <input type="text" class="form-control" placeholder="CEP*" name="contato[cep]" id="cep" required>
                     </div>
-                    <div class="form-group col-4">
+                    <div class="form-group col-12">
                         <input type="text" class="form-control" placeholder="Bairro*" name="contato[bairro]" id="bairro" required>
                     </div>
-                    <div class="form-group col-4">
+                    <div class="form-group col-12">
                         <input type="text" class="form-control" placeholder="Cidade*" name="contato[cidade]" id="cidade" required>
                     </div>
                     <div class="form-group col-12 col-sm-6">
                         <input type="text" class="form-control" placeholder="Logradouro*" name="contato[endereco]" id="endereco" required>
                     </div>
-                    <div class="form-group col-6 col-sm-3">
+                    <div class="form-group col-5 col-sm-3">
                         <input type="text" class="form-control" placeholder="Número*" name="contato[numero]" id="numero" required>
                     </div>
-                    <div class="form-group col-6 col-sm-3">
+                    <div class="form-group col-7 col-sm-3">
                         <input type="text" class="form-control" placeholder="Complemento*" name="contato[complemento]" id="complemento">
                     </div>
-                    <div class="form-group col-6">
+                    <div class="form-group col-12">
                         <label for="estado">Estado*</label>
                         <select class="form-control" class="form-control" name="contato[estado]" id="estado" required>
                             <option value="AC">Acre</option>
@@ -85,20 +85,20 @@
                             <option value="TO">Tocantins</option>
                         </select>        
                     </div>
-                    <div class="form-group col-6">
+                    <div class="form-group col-12">
                             <label><p></p></label>
                         <input type="text" class="form-control" placeholder="Telefone*" name="contato[telefone]" required>
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-6">
+                    <div class="form-group col-12">
                         <input type="email" class="form-control" placeholder="e-mail*" name="contato[email]" required>
                     </div>
                 </div> 
             </div>
             <div id="formacao">
                 <div class="row m-2 text-white">
-                    <h1 class="bg-primary p-1 col-3 border border-primary">Formação</h1>
+                    <h1 class="bg-primary p-1 col-12 border border-primary">Formação</h1>
                 </div>
                     <button type="button" value="Adicionar formação" onclick="adicionarFormacao()" class="btn btn-outline-secondary">Adicionar formação</button>
                     <button type="button" value="Remover formação" onclick="removerFormacao()" class="btn btn-outline-secondary">Remover formação</button>
@@ -106,7 +106,7 @@
             </div>
             <div id="idiomas">
                     <div class="row m-2 text-white">
-                    <h1 class="bg-primary p-1 col-3 border border-primary">Idiomas</h1>
+                    <h1 class="bg-primary p-1 col-12 border border-primary">Idiomas</h1>
                 </div>
                     <button type="button" value="Adicionar idioma" onclick="adicionarIdioma()" class="btn btn-outline-secondary">Adicionar idioma</button>
                     <button type="button" value="Remover idioma" onclick="removerIdioma()" class="btn btn-outline-secondary">Remover idioma</button>
@@ -115,7 +115,7 @@
 
             <div id="experiencia">
                     <div class="row m-2 text-white">
-                    <h1 class="bg-primary p-1 col-4 border border-primary">Experiências</h1>
+                    <h1 class="bg-primary p-1 col-12 border border-primary">Experiências</h1>
                 </div>
                     <button type="button" value="Adicionar experiência" onclick="adicionarExperiencia()" class="btn btn-outline-secondary">Adicionar experiência</button>
                     <button type="button" value="Remover experiencia" onclick="removerExperiencia()" class="btn btn-outline-secondary">Remover experiencia</button>
@@ -124,7 +124,7 @@
 
             <div id="adicionais">
                 <div class="row m-2 text-white">
-                <h1 class="bg-primary p-1 col-4 border border-primary">Informações adicionais</h1>
+                <h1 class="bg-primary p-1 col-12 border border-primary">Informações adicionais</h1>
                 </div>
                     <textarea class="form-control" rows="5" name="informacoesAdicionais" placeholder="Insira quaisquer informações que achar pertinentes."></textarea>
                 </div>    
@@ -164,21 +164,21 @@
 
         <div name="novaFormacao" class="container" hidden>
             <div class="form-row">
-                <div class="form-group col">
+                <div class="form-group col-12">
                     <label for="titulo">Título:</label>
                     <input type="text" class="form-control" id="titulo" name="formacao[0][titulo]" required>
                 </div>
-                <div class="form-group col">
+                <div class="form-group col-12">
                     <label for="instituicao">Instituição:</label>
                     <input type="text" id="instituicao" class="form-control" name="formacao[0][instituicao]" required>
                 </div>
             </div>
             <div class="form-row">
-                <div class="form-group col">
+                <div class="form-group col-12">
                     <label for="inicioDaFormacao">Ano de início:</label>
                     <input type="number" id="inicioDaFormacao" class="form-control" name="formacao[0][inicioDaFormacao]" required>
                 </div>
-                <div class="form-group col">
+                <div class="form-group col-12">
                     <label for="fimDaFormacao">Ano de finalização:</label>
                     <input type="number" id="fimDaFormacao" class="form-control" name="formacao[0][fimDaFormacao]" required>
                 </div>
@@ -189,21 +189,21 @@
 
         <div name="novaExperiencia" class="container" hidden>
             <div class="form-row">
-                <div class="form-group col">
+                <div class="form-group col-12">
                     <label for="cargo">Cargo:</label>
                     <input type="text" id="cargo" class="form-control" name="experiencias[0][cargo]" required>
                 </div>
-                <div class="form-group col">
+                <div class="form-group col-12">
                     <label for="empresa">Empresa:</label>
                     <input type="text" id="empresa" class="form-control" name="experiencias[0][empresa]" required>
                 </div>
             </div>
             <div class="form-row">
-                <div class="form-group col">
+                <div class="form-group col-12">
                     <label for="inicioDaExperiencia">Ano de início:</label>
                     <input type="number" id="inicioDaExperiencia" class="form-control" name="experiencias[0][inicioDaExperiencia]" required>
                 </div>
-                <div class="form-group col">
+                <div class="form-group col-12">
                     <label for="fimDaExperiencia">Ano de fim:</label>
                     <input type="number" id="fimDaExperiencia" class="form-control" name="experiencias[0][fimDaExperiencia]" required>
                 </div>
