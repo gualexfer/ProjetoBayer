@@ -22,7 +22,7 @@ input[type=text], input[type=email], input[type=date], input[type=url]{
 }
 
 #pagperfil{
-    width: 60%;
+    width: 85%;
     background-color:rgb(245, 244, 244);
     border-color: white;
     border-style: solid;
