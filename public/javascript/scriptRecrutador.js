@@ -31,37 +31,39 @@ $(function() {
         $('.row').find('.active').removeClass('active');
         $(this).addClass("active");
     });
+
+    $('[name="inserirNovaVaga"]').on('submit', function(e) {
+        e.preventDefault();
+
+        let vaga = $("#nome").val();
+
+        if (vaga != '') {
+            $.ajax({
+                method: 'POST',
+                url: 'recrutador/inserirVaga/' + vaga
+            });
+        }
+    });
 });
 
 function arquivarCurriculo(curriculoId) {
     $.ajax({
-        type: 'ARQUIVAR',
         method: 'PUT',
-        url: 'curriculo/' + curriculoId + '/arquivar/',
-        success: function(data) {
-            
-        }
+        url: 'curriculo/' + curriculoId + '/arquivar/'
     });
 }
 
 function desarquivarCurriculo(curriculoId) {
     $.ajax({
-        type: 'DESARQUIVAR',
         method: 'PUT',
-        url: 'curriculo/' + curriculoId + '/desarquivar/',
-        success: function(data) {
-            
-        }
+        url: 'curriculo/' + curriculoId + '/desarquivar/'
     });
 }
 
 function deletarCurriculo(curriculoId) {
     $.ajax({
         type: 'DELETE',
-        url: 'curriculo/' + curriculoId,
-        success: function(data) {
-            
-        }
+        url: 'curriculo/' + curriculoId
     });
 }
 

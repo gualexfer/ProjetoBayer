@@ -1,6 +1,7 @@
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const Curriculo = require('../models/curriculo');
+const Vaga = require('../models/vaga');
 
 mongoose.connect('mongodb+srv://bayer:bayer@cluster0-mfkxs.mongodb.net/test?retryWrites=true&w=majority', {useNewUrlParser: true});
 
@@ -47,5 +48,17 @@ module.exports = function(app) {
     app.delete('/curriculo/:id', function(req, res) {
         Curriculo.findByIdAndDelete({_id: req.params.id})
         .then(curriculo => {res.send(curriculo)});
+    });
+
+    app.post('/recrutador/inserirVaga/:vaga', function(req, res) {
+        let vaga = {
+            nome: req.params.vaga
+        }
+
+        Vaga(vaga).save(function(err) {
+            if (err) throw err;
+        });
+
+        res.send("Vaga cadastrada com sucesso!");
     });
 }

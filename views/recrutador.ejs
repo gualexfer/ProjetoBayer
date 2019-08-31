@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="../public/css/styleRecrutador.css" type="text/css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://cdnjs.clo<udflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     </head>
     <body>
@@ -20,6 +20,12 @@
                 <input type="button" id="deletarSelecionados" class="btn btn-secondary btn-sm col-6 col-md-3 col-lg-2" value="Deletar selecionados" onclick="deletarSelecionados()">
                 <input type="button" id="exibirArquivados" class="btn btn-secondary btn-sm col-6 col-md-3 col-lg-2 offset-lg-4 activable" value="Exibir arquivados">
                 <input type="button" id="exibirNaoArquivados" class="btn btn-secondary btn-sm active col-6 col-md-3 col-lg-2 activable" value="Exibir não arquivados">
+            </div>
+            <div class="row pb-4">
+                <form name="inserirNovaVaga" class="form-inline" action="POST">
+                    <input type="text" id="nome" name="nome" class="form-control" placeholder="Inserir nova vaga...">
+                    <input type="submit" id="submeterVaga" class="form-control btn btn-secondary" value="Inserir vaga">
+                </form>
             </div>
         </div>
         <div id="curriculosNaoArquivados">
