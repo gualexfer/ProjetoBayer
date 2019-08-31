@@ -66,4 +66,9 @@ module.exports = function(app) {
 
         res.send("Vaga cadastrada com sucesso!");
     });
+
+    app.delete('/recrutador/deletarVaga/:id', function(req, res) {
+        Vaga.findByIdAndDelete({_id: req.params.id})
+        .then(vaga => {res.send(vaga)});
+    });
 }

@@ -44,6 +44,17 @@ $(function() {
             });
         }
     });
+
+    $('[name="removerVagaCadastrada"]').on('submit', function(e) {
+        e.preventDefault();
+
+        let vaga = $("[name='vaga']").val();
+        
+        $.ajax({
+            method: 'DELETE',
+            url: 'recrutador/deletarVaga/' + vaga
+        });
+    });
 });
 
 function arquivarCurriculo(curriculoId) {
