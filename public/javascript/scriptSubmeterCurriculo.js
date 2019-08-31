@@ -41,14 +41,6 @@ $(function(e) {
             $(this).removeClass("is-valid");
         }
     });
-
-    $('[name="selecionarVaga"]').on('submit', function(e) {
-        e.preventDefault();
-
-        vagaSelecionada = $("[name='vaga']").val();
-        $("#seletorDeVaga").css('display', 'none');
-        $("#principal").css('display', 'inline');
-    });
 });
 
 function jsonp(url, callback) {
@@ -75,6 +67,11 @@ function calcularIdade(dataDeNascimento, dataDeHoje) {
     }
 
     return idade;
+}
+
+function selecionar() {
+    $("#seletorDeVaga").css('display', 'none');
+    $("#formEscondido").css('display', 'inline');
 }
 
 function adicionarIdioma() {
