@@ -1,6 +1,7 @@
 let numeroDeExperiencias = 0;
 let numeroDeFormacoes = 0;
 let numeroDeIdiomas = 0;
+let vagaSelecionada;
 
 $(function(e) {
     $('[name="contato[cep]"]').on("change", function(e) {
@@ -39,6 +40,14 @@ $(function(e) {
             $(this).addClass("is-invalid");
             $(this).removeClass("is-valid");
         }
+    });
+
+    $('[name="selecionarVaga"]').on('submit', function(e) {
+        e.preventDefault();
+
+        vagaSelecionada = $("[name='vaga']").val();
+        $("#seletorDeVaga").css('display', 'none');
+        $("#principal").css('display', 'inline');
     });
 });
 

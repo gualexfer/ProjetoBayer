@@ -11,7 +11,9 @@ const urlencodedParser = bodyParser.urlencoded( {extended: true} );
 
 module.exports = function(app) {
     app.get('/submeterCurriculo', function(req, res) {
-        res.render('submeterCurriculo');
+        Vaga.find({}).then(vagas => {
+            res.render('submeterCurriculo', {vagas});
+        });
     });
 
     app.post('/submeterCurriculo', urlencodedParser, function(req, res) {

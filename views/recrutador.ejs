@@ -22,11 +22,11 @@
                 <input type="button" id="exibirNaoArquivados" class="btn btn-secondary btn-sm active col-6 col-md-3 col-lg-2 activable" value="Exibir não arquivados">
             </div>
             <div class="row pb-4">
-                <form name="inserirNovaVaga" class="form-inline" action="POST">
+                <form name="inserirNovaVaga" class="form-inline" method="POST">
                     <input type="text" id="nome" name="nome" class="form-control" placeholder="Inserir nova vaga...">
                     <input type="submit" id="submeterVaga" class="form-control btn btn-secondary" value="Inserir vaga">
                 </form>
-                <form name="removerVagaCadastrada" class="form-inline" action="DELETE">
+                <form name="removerVagaCadastrada" class="form-inline" method="DELETE">
                     <select name="vaga" class="form-control">
                         <% vagas.forEach(function(vaga) { %>
                             <option value="<%= vaga._id %>"><%= vaga.nome %></option>
