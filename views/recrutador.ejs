@@ -26,6 +26,13 @@
                     <input type="text" id="nome" name="nome" class="form-control" placeholder="Inserir nova vaga...">
                     <input type="submit" id="submeterVaga" class="form-control btn btn-secondary" value="Inserir vaga">
                 </form>
+                <form name="vagasCadastradas" class="form-inline" action="POST">
+                    <select name="nome">
+                        <% vagas.forEach(function(vaga) { %>
+                            <option><%= vaga.nome %></option>
+                        <% }); %>
+                    </select>
+                </form>
             </div>
         </div>
         <div id="curriculosNaoArquivados">
