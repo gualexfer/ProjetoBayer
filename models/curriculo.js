@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const curriculoSchema = new mongoose.Schema({
+    vaga: String,
     perfil: {
         nome: String,
         idade: String,
