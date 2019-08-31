@@ -17,6 +17,28 @@ $(function(e) {
                 city.value = cidade;
                 state.value = uf;
                 bair.value = bairro;
+
+                $('#endereco').removeClass('is-invalid');
+                $('#cidade').removeClass('is-invalid');
+                $('#estado').removeClass('is-invalid');
+                $('#bairro').removeClass('is-invalid');
+
+                $('#endereco').addClass('is-valid');
+                $('#cidade').addClass('is-valid');
+                $('#estado').addClass('is-valid');
+                $('#bairro').addClass('is-valid');
+            } else {
+                $(this).removeClass('is-valid');
+                $('#endereco').removeClass('is-valid');
+                $('#cidade').removeClass('is-valid');
+                $('#estado').removeClass('is-valid');
+                $('#bairro').removeClass('is-valid');
+
+                $(this).addClass('is-invalid');
+                $('#endereco').addClass('is-invalid');
+                $('#cidade').addClass('is-invalid');
+                $('#estado').addClass('is-invalid');
+                $('#bairro').addClass('is-invalid');
             }
         });
     })
