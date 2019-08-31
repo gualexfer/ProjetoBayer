@@ -58,6 +58,7 @@ $(function(e) {
             }
         }
     });
+
     $('input[type="text"]').focusout(function(e) {
         if ($(this).val() != "") {
             $(this).addClass("is-valid");
@@ -68,7 +69,22 @@ $(function(e) {
             $(this).removeClass("is-valid");
         }
     });
+
+    $('input[type="email"]').focusout(function(e) {
+        if(validarEmail($('input[type="email"]').val())) {
+            $('input[type="email"]').removeClass('is-invalid');
+            $('input[type="email"]').addClass('is-valid');
+        } else {
+            $('input[type="email"]').addClass('is-invalid');
+            $('input[type="email"]').removeClass('is-valid');
+        }
+    });
 });
+
+function validarEmail(email) {
+    var expressao = /\S+@\S+\.\S+/;
+    return expressao.test(email);
+}
 
 function jsonp(url, callback) {
     var callbackName = 'jsonp_callback_' + Math.round(100000 * Math.random());
