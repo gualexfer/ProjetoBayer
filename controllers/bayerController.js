@@ -27,9 +27,6 @@ module.exports = function(app) {
     });
 
     app.get('/recrutador', function(req, res) {
-        /*Curriculo.find({}, function(err, curriculos) {
-            res.render('recrutador', {curriculos: curriculos});
-        });*/
         Curriculo.find({}).then(curriculos => {
             Vaga.find({}).then(vagas => {
                 res.render('recrutador', {curriculos, vagas});
@@ -39,6 +36,9 @@ module.exports = function(app) {
 
     app.get('/curriculo/:id', function(req, res) {
         Curriculo.find({_id: req.params.id}, function(err, curriculo) {
+            console.log("*--------------------*")
+            console.log('-');
+            console.log(JSON.stringify(curriculo));
             res.render('curriculo', {curriculo: curriculo});
         });
     })
