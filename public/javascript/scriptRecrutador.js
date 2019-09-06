@@ -71,10 +71,6 @@ function removerVaga() {
     }
 }
 
-function filtrar(curriculosArquivados, curriculosNaoArquivados) {
-    console.log(curriculosArquivados);
-}
-
 function arquivarCurriculo(curriculoId) {
     $.ajax({
         method: 'PUT',
