@@ -36,56 +36,52 @@
                 </form>
             </div>
         </div>
-        <div id="curriculosNaoArquivados">
-            <div class="container overflow-auto">
-                <% curriculosNaoArquivados.forEach(function(curriculo) { %>
-                    <div class ="container row finalBorder" id="listaCurriculo">
-                        <div class="row col-12 col-lg-10">
-                            <div class = "col-2 col-lg-1 align-self-center">
-                                <input type="checkbox" id="<%= curriculo._id %>"></li>
-                            </div>
-                            <div class = "col-8 col-lg-10 align-self-center">
-                                <a href="/curriculo/<%= curriculo._id %>"><%= curriculo.perfil.nome %></a></li>
-                            </div>
-                            <div class = "col-2 col-lg-1 align-self-center">
-                                <span>Pontuação: <%= curriculo.pontuacao %></span></li>
-                            </div>
-                        </div>    
-                        <div class="row col-12 col-lg-2">
-                            <div class = "col-6 col-lg-6 d-flex justify-content-center text-center align-self-center">
-                                <button class="btn btn-secondary btn-sm" onclick="arquivarCurriculo('<%= curriculo._id %>')">Arquivar</button></li>
-                            </div>
-                            <div class = "col-6 col-lg-6 d-flex justify-content-center text-center align-self-center">
-                                <button class="btn btn-secondary btn-sm" onclick="deletarCurriculo('<%= curriculo._id %>')">Deletar</button></li>
-                            </div>
+        <div id="curriculosNaoArquivados" class="container overflow-auto">
+            <% curriculosNaoArquivados.forEach(function(curriculo) { %>
+                <div class ="container row finalBorder" id="listaCurriculo">
+                    <div class="row col-12 col-lg-10">
+                        <div class = "col-2 col-lg-1 align-self-center">
+                            <input type="checkbox" id="<%= curriculo._id %>"></li>
+                        </div>
+                        <div class = "col-8 col-lg-10 align-self-center">
+                            <a href="/curriculo/<%= curriculo._id %>"><%= curriculo.perfil.nome %></a></li>
+                        </div>
+                        <div class = "col-2 col-lg-1 align-self-center">
+                            <span>Pontuação: <%= curriculo.pontuacao %></span></li>
+                        </div>
+                    </div>    
+                    <div class="row col-12 col-lg-2">
+                        <div class = "col-6 col-lg-6 d-flex justify-content-center text-center align-self-center">
+                            <button class="btn btn-secondary btn-sm" onclick="arquivarCurriculo('<%= curriculo._id %>')">Arquivar</button></li>
+                        </div>
+                        <div class = "col-6 col-lg-6 d-flex justify-content-center text-center align-self-center">
+                            <button class="btn btn-secondary btn-sm" onclick="deletarCurriculo('<%= curriculo._id %>')">Deletar</button></li>
                         </div>
                     </div>
-                <% }); %>
-            </div>            
+                </div>
+            <% }); %>          
         </div>
 
-        <div id="curriculosArquivados">
-            <div class="container overflow-auto">
-                <% curriculosArquivados.forEach(function(curriculo) { %>
-                    <div class ="row finalBorder" id="listaCurriculo">
-                        <div class = "col-1 align-self-center">
-                            <input type="checkbox" id="<%= curriculo._id %>">
-                        </div>
-                        <div class = "col-4 col-lg-6 align-self-center">    
-                            <a href="/curriculo/<%= curriculo._id %>"><%= curriculo.perfil.nome %></a>
-                        </div>
-                        <div class = "col-1 align-self-center">
-                            <span>Pontuação: <%= curriculo.pontuacao %></span>
-                        </div>
-                        <div class = "col-3 col-lg-2 align-self-center">
-                            <button class="btn btn-secondary btn-md" onclick="desarquivarCurriculo('<%= curriculo._id %>')">Desarquivar</button>
-                        </div>
-                        <div class = "col-3 col-lg-2 align-self-center">
-                            <button class="btn btn-secondary btn-md" onclick="deletarCurriculo('<%= curriculo._id %>')">Deletar</button>
-                        </div>
+        <div id="curriculosArquivados" class="container overflow-auto">
+            <% curriculosArquivados.forEach(function(curriculo) { %>
+                <div class ="row finalBorder" id="listaCurriculo">
+                    <div class = "col-1 align-self-center">
+                        <input type="checkbox" id="<%= curriculo._id %>">
                     </div>
-                <% }); %>
-            </div>
+                    <div class = "col-4 col-lg-6 align-self-center">    
+                        <a href="/curriculo/<%= curriculo._id %>"><%= curriculo.perfil.nome %></a>
+                    </div>
+                    <div class = "col-1 align-self-center">
+                        <span>Pontuação: <%= curriculo.pontuacao %></span>
+                    </div>
+                    <div class = "col-3 col-lg-2 align-self-center">
+                        <button class="btn btn-secondary btn-md" onclick="desarquivarCurriculo('<%= curriculo._id %>')">Desarquivar</button>
+                    </div>
+                    <div class = "col-3 col-lg-2 align-self-center">
+                        <button class="btn btn-secondary btn-md" onclick="deletarCurriculo('<%= curriculo._id %>')">Deletar</button>
+                    </div>
+                </div>
+            <% }); %>
         </div>
 
         <script src="../public/javascript/jquery-3.4.1.min.js"></script>
