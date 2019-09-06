@@ -49,7 +49,7 @@ $(function() {
     });
     $("[name='vaga']").on("change", function(e) {
         let vaga = $("[name='vaga']").val();
-        if(vaga !== "selecione"); {
+        if(vaga !== "selecione") {
             if (selectedId != undefined) {
                 $("#curriculosNaoArquivados" + selectedId).addClass("d-none");
             }
