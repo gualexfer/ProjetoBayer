@@ -62,10 +62,12 @@ $(function() {
 function removerVaga() {
     let vaga = $("[name='vaga']").val();
     
-    $.ajax({
-        method: 'DELETE',
-        url: 'recrutador/deletarVaga/' + vaga
-    });
+    if (vaga !== "selecione") {
+        $.ajax({
+            method: 'DELETE',
+            url: 'recrutador/deletarVaga/' + vaga
+        });
+    }
 }
 
 function filtrar(curriculosArquivados, curriculosNaoArquivados) {
