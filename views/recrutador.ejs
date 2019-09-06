@@ -46,8 +46,11 @@
                                         <div class = "col-2 col-lg-1 align-self-center">
                                             <li><input type="checkbox" id="<%= curriculo._id %>"></li>
                                         </div>
-                                        <div class = "col-10 col-lg-11 align-self-center">
+                                        <div class = "col-8 col-lg-10 align-self-center">
                                             <li><a href="/curriculo/<%= curriculo._id %>"><%= curriculo.perfil.nome %></a></li>
+                                        </div>
+                                        <div class = "col-2 col-lg-1 align-self-center">
+                                            <li><span>Pontuação: <%= curriculo.pontuacao %></span></li>
                                         </div>
                                     </div>    
                                     <div class="row col-12 col-lg-2">
@@ -74,13 +77,16 @@
                                 <div class = "col-1 align-self-center">
                                     <li><input type="checkbox" id="<%= curriculo._id %>"></li>
                                 </div>
-                                <div class = "col-4 col-lg-7 align-self-center">    
+                                <div class = "col-4 col-lg-6 align-self-center">    
                                     <li><a href="/curriculo/<%= curriculo._id %>"><%= curriculo.perfil.nome %></a></li>
                                 </div>
-                                <div class = "col-4 col-lg-2 align-self-center">
+                                <div class = "col-1 align-self-center">
+                                    <li><span>Pontuação: <%= curriculo.pontuacao %></span></li>
+                                </div>
+                                <div class = "col-3 col-lg-2 align-self-center">
                                     <li><button class="btn btn-secondary btn-md" onclick="desarquivarCurriculo('<%= curriculo._id %>')">Desarquivar</button></li>
                                 </div>
-                                <div class = "col-4 col-lg-2 align-self-center">
+                                <div class = "col-3 col-lg-2 align-self-center">
                                     <li><button class="btn btn-secondary btn-md" onclick="deletarCurriculo('<%= curriculo._id %>')">Deletar</button></li>
                                 </div>
                             </div>
