@@ -11,6 +11,8 @@ $(function() {
         if (vaga !== "selecione") {
             $("#curriculosArquivados" + vaga).removeClass('d-none');
             $("#curriculosNaoArquivados" + vaga).addClass('d-none');
+            $("#arquivarSelecionados").attr("value", "Desarquivar selecionados");
+            $("#arquivarSelecionados").attr("onClick", "mostrarModal('desarquivar')");
         }
     });
 
@@ -19,6 +21,8 @@ $(function() {
         if (vaga !== "selecione") {
             $("#curriculosArquivados" + vaga).addClass('d-none');
             $("#curriculosNaoArquivados" + vaga).removeClass('d-none');
+            $("#arquivarSelecionados").attr("value", "Aquivar selecionados");
+            $("#arquivarSelecionados").attr("onClick", "mostrarModal('arquivar')");
         }
     });
 
@@ -31,8 +35,12 @@ $(function() {
     });
 
     $('.activable').on('click', function(e) {
-        $('.row').find('.active').removeClass('active');
-        $(this).addClass("active");
+        let vaga = $("[name='vaga']").val();
+        
+        if (vaga !== "selecione") {
+            $('.row').find('.active').removeClass('active');
+            $(this).addClass("active");
+        }
     });
 
     $('[name="inserirNovaVaga"]').on('submit', function(e) {
@@ -55,12 +63,27 @@ $(function() {
                 $("#curriculosArquivados" + selectedId).addClass("d-none");
                 $('#exibirArquivados').removeClass('active');
                 $('#exibirNaoArquivados').addClass('active');
+                $("#arquivarSelecionados").attr("value", "Aquivar selecionados");
+                $("#arquivarSelecionados").attr("onClick", "mostrarModal('arquivar')");
             }
             $("#curriculosNaoArquivados" + vaga).removeClass("d-none");
             selectedId = vaga;
         }
     });
 });
+
+function mostrarModal(paraQuem) {
+    if (paraQuem === 'desarquivar') {
+        $("#modal-body-text").text("Deseja realmente desarquivar todos os selecionados?");
+        $("#modalYes").attr("onClick", "desarquivarSelecionados()");
+    } else if (paraQuem === 'arquivar') {
+        $("#modal-body-text").text("Deseja realmente arquivar todos os selecionados?");
+        $("#modalYes").attr("onClick", "arquivarSelecionados()");
+    } else if (paraQuem === 'deletar') {
+        $("#modal-body-text").text("Deseja realmente deletar todos os selecionados?");
+        $("#modalYes").attr("onClick", "deletarSelecionados()");
+    }
+}
 
 function removerVaga() {
     let vaga = $("[name='vaga']").val();

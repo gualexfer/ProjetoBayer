@@ -16,8 +16,8 @@
         </nav>
         <div class="container" id="upper-div">
             <div class="row py-4">
-                <input type="button" id="arquivarSelecionados" class="btn btn-secondary btn-sm col-6 col-md-3 col-lg-2" value="Arquivar selecionados" onclick="arquivarSelecionados()">
-                <input type="button" id="deletarSelecionados" class="btn btn-secondary btn-sm col-6 col-md-3 col-lg-2" value="Deletar selecionados" onclick="deletarSelecionados()">
+                <input type="button" id="arquivarSelecionados" class="btn btn-secondary btn-sm col-6 col-md-3 col-lg-2" value="Arquivar selecionados" data-toggle="modal" data-target="#modal" onclick="mostrarModal('arquivar')">
+                <input type="button" id="deletarSelecionados" class="btn btn-secondary btn-sm col-6 col-md-3 col-lg-2" value="Deletar selecionados" data-toggle="modal" data-target="#modal" onclick="mostrarModal('deletar')">
                 <input type="button" id="exibirArquivados" class="btn btn-secondary btn-sm col-6 col-md-3 col-lg-2 offset-lg-4 activable" value="Exibir arquivados">
                 <input type="button" id="exibirNaoArquivados" class="btn btn-secondary btn-sm active col-6 col-md-3 col-lg-2 activable" value="Exibir não arquivados">
             </div>
@@ -88,6 +88,26 @@
                 <% }); %>
             </div>
         <% }); %>
+        
+        <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Confirmação</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                    <span id="modal-body-text"></span>
+                </div>
+                <div class="modal-footer">
+                <input type="button" id="modalNo" class="btn btn-secondary" data-dismiss="modal" value="Não">
+                <input type="button" id="modalYes" class="btn btn-primary" value="Sim">
+                </div>
+            </div>
+            </div>
+        </div>
         <script src="../public/javascript/scriptRecrutador.js"></script>
     </body>
 </html>
