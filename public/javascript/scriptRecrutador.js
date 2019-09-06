@@ -53,6 +53,8 @@ $(function() {
             if (selectedId != undefined) {
                 $("#curriculosNaoArquivados" + selectedId).addClass("d-none");
                 $("#curriculosArquivados" + selectedId).addClass("d-none");
+                $('#exibirArquivados').removeClass('active');
+                $('#exibirNaoArquivados').addClass('active');
             }
             $("#curriculosNaoArquivados" + vaga).removeClass("d-none");
             selectedId = vaga;
