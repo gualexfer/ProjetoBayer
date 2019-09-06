@@ -66,9 +66,18 @@ module.exports = function(app) {
     });
 
     app.get('/recrutador', function(req, res) {
+        let curriculosArquivados = [], curriculosNaoArquivados = [];
+
         Curriculo.find({}).then(curriculos => {
+            curriculos.forEach(curriculo => {
+                if (curriculo.arquivado)
+                    curriculosArquivados.push(curriculo)
+                else
+                    curriculosNaoArquivados.push(curriculo);
+            });
+
             Vaga.find({}).then(vagas => {
-                res.render('recrutador', {curriculos, vagas});
+                res.render('recrutador', {curriculosArquivados, curriculosNaoArquivados, vagas});
             });
         });
     });
