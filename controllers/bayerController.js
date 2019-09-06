@@ -76,6 +76,14 @@ module.exports = function(app) {
                     curriculosNaoArquivados.push(curriculo);
             });
 
+            curriculosArquivados.sort(function (a, b) {
+                return b.pontuacao - a.pontuacao;
+            });
+
+            curriculosNaoArquivados.sort(function (a, b) {
+                return b.pontuacao - a.pontuacao;
+            });
+
             Vaga.find({}).then(vagas => {
                 res.render('recrutador', {curriculosArquivados, curriculosNaoArquivados, vagas});
             });
