@@ -42,15 +42,27 @@ module.exports = function(app) {
         naturalLanguageUnderstanding.analyze(analyzeParams)
         .then(analysisResults => {
             console.log(JSON.stringify(analysisResults, null, 2));
+
+            let pontuacao = 0;
+            const entidades = [...analysisResults.entities];
+
+            entidades.forEach(entidade => {
+                if (entidade.type == "Relevancia") {
+                    pontuacao++;
+                }
+            });
+
+            curriculo.pontuacao = pontuacao;
+        })
+        .then(() => {
+            Curriculo(curriculo).save(function(err) {
+                if (err) console.log("error: ", err);
+            });
+            res.send("Seu currículo foi enviado com sucesso!");
         })
         .catch(err => {
             console.log('error:', err);
         });
-
-        Curriculo(curriculo).save(function(err) {
-            if (err) throw err;
-        });
-        res.send("Seu currículo foi enviado com sucesso!");
     });
 
     app.get('/recrutador', function(req, res) {

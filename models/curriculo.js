@@ -49,7 +49,8 @@ const curriculoSchema = new mongoose.Schema({
     arquivado: {
         type: Boolean,
         default: false
-    }
+    },
+    pontuacao: Number
 });
 
 const Curriculo = mongoose.model('Curriculo', curriculoSchema);
