@@ -52,6 +52,7 @@ $(function() {
         if(vaga !== "selecione") {
             if (selectedId != undefined) {
                 $("#curriculosNaoArquivados" + selectedId).addClass("d-none");
+                $("#curriculosArquivados" + selectedId).addClass("d-none");
             }
             $("#curriculosNaoArquivados" + vaga).removeClass("d-none");
             selectedId = vaga;
