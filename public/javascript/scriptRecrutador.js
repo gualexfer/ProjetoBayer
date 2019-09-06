@@ -7,17 +7,19 @@ $(function() {
     });
 
     $('#exibirArquivados').click(function(e) {
-        $("#curriculosArquivados").css('display', 'block');
-        $("#curriculosNaoArquivados").css('display', 'none');
-        $("input[value='Arquivar selecionados']").attr("onClick", "desarquivarSelecionados()");
-        $("input[value='Arquivar selecionados']").val("Desarquivar selecionados");
+        let vaga = $("[name='vaga']").val();
+        if (vaga !== "selecione") {
+            $("#curriculosArquivados" + vaga).removeClass('d-none');
+            $("#curriculosNaoArquivados" + vaga).addClass('d-none');
+        }
     });
 
     $('#exibirNaoArquivados').click(function(e) {
-        $("#curriculosArquivados").css('display', 'none');
-        $("#curriculosNaoArquivados").css('display', 'block');
-        $("input[value='Desarquivar selecionados']").attr("onClick", "arquivarSelecionados()");
-        $("input[value='Desarquivar selecionados']").val("Arquivar selecionados");
+        let vaga = $("[name='vaga']").val();
+        if (vaga !== "selecione") {
+            $("#curriculosArquivados" + vaga).addClass('d-none');
+            $("#curriculosNaoArquivados" + vaga).removeClass('d-none');
+        }
     });
 
     $('input[type="checkbox"]').on('change', function(e) {
