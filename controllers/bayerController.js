@@ -66,26 +66,26 @@ module.exports = function(app) {
     });
 
     app.get('/recrutador', function(req, res) {
-        let curriculosArquivados = [], curriculosNaoArquivados = [];
+        let arquivados = [], naoArquivados = [];
 
         Curriculo.find({}).then(curriculos => {
             curriculos.forEach(curriculo => {
                 if (curriculo.arquivado)
-                    curriculosArquivados.push(curriculo)
+                    arquivados.push(curriculo)
                 else
-                    curriculosNaoArquivados.push(curriculo);
+                    naoArquivados.push(curriculo);
             });
 
-            curriculosArquivados.sort(function (a, b) {
+            arquivados.sort(function (a, b) {
                 return b.pontuacao - a.pontuacao;
             });
 
-            curriculosNaoArquivados.sort(function (a, b) {
+            naoArquivados.sort(function (a, b) {
                 return b.pontuacao - a.pontuacao;
             });
 
             Vaga.find({}).then(vagas => {
-                res.render('recrutador', {curriculosArquivados, curriculosNaoArquivados, vagas});
+                res.render('recrutador', {arquivados, naoArquivados, vagas});
             });
         });
     });

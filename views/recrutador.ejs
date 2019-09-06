@@ -26,64 +26,68 @@
                     <input type="text" id="nome" name="nome" class="form-control" placeholder="Inserir nova vaga...">
                     <input type="submit" id="submeterVaga" class="form-control btn btn-secondary" value="Inserir vaga">
                 </form>
-                <form name="removerVagaCadastrada" class="form-inline" method="DELETE">
-                    <select name="vaga" class="form-control">
-                        <% vagas.forEach(function(vaga) { %>
-                            <option value="<%= vaga._id %>"><%= vaga.nome %></option>
-                        <% }); %>
-                    </select>
-                    <input type="submit" id="removerVaga" class="form-control btn btn-secondary" value="Remover vaga">
-                </form>
+                <select name="vaga">
+                    <option value="selecione">Selecione uma vaga</option>
+                    <% vagas.forEach(function(vaga) { %>
+                        <option value="<%= vaga._id %>"><%= vaga.nome %></option>
+                    <% }); %>
+                </select>
+                <input type="button" id="removerVaga" class="btn btn-secondary" value="Remover vaga selecionada" onClick="removerVaga()">
             </div>
         </div>
-        <div id="curriculosNaoArquivados" class="container overflow-auto">
-            <% curriculosNaoArquivados.forEach(function(curriculo) { %>
-                <div class ="container row finalBorder" id="listaCurriculo">
-                    <div class="row col-12 col-lg-10">
-                        <div class = "col-2 col-lg-1 align-self-center">
-                            <input type="checkbox" id="<%= curriculo._id %>"></li>
+        <% vagas.forEach(function(vaga) { %>
+            <div id="curriculosNaoArquivados<%= vaga._id %>" class="container overflow-auto d-none">
+                <% naoArquivados.forEach(function(curriculo) { %>
+                    <% if (curriculo.vaga == vaga.nome) { %>
+                        <div class ="container row finalBorder" id="listaCurriculo">
+                            <div class="row col-12 col-lg-10">
+                                <div class = "col-2 col-lg-1 align-self-center">
+                                    <input type="checkbox" id="<%= curriculo._id %>"></li>
+                                </div>
+                                <div class = "col-8 col-lg-10 align-self-center">
+                                    <a href="/curriculo/<%= curriculo._id %>"><%= curriculo.perfil.nome %></a></li>
+                                </div>
+                                <div class = "col-2 col-lg-1 align-self-center">
+                                    <span>Pontuação: <%= curriculo.pontuacao %></span></li>
+                                </div>
+                            </div>    
+                            <div class="row col-12 col-lg-2">
+                                <div class = "col-6 col-lg-6 d-flex justify-content-center text-center align-self-center">
+                                    <button class="btn btn-secondary btn-sm" onclick="arquivarCurriculo('<%= curriculo._id %>')">Arquivar</button></li>
+                                </div>
+                                <div class = "col-6 col-lg-6 d-flex justify-content-center text-center align-self-center">
+                                    <button class="btn btn-secondary btn-sm" onclick="deletarCurriculo('<%= curriculo._id %>')">Deletar</button></li>
+                                </div>
+                            </div>
                         </div>
-                        <div class = "col-8 col-lg-10 align-self-center">
-                            <a href="/curriculo/<%= curriculo._id %>"><%= curriculo.perfil.nome %></a></li>
-                        </div>
-                        <div class = "col-2 col-lg-1 align-self-center">
-                            <span>Pontuação: <%= curriculo.pontuacao %></span></li>
-                        </div>
-                    </div>    
-                    <div class="row col-12 col-lg-2">
-                        <div class = "col-6 col-lg-6 d-flex justify-content-center text-center align-self-center">
-                            <button class="btn btn-secondary btn-sm" onclick="arquivarCurriculo('<%= curriculo._id %>')">Arquivar</button></li>
-                        </div>
-                        <div class = "col-6 col-lg-6 d-flex justify-content-center text-center align-self-center">
-                            <button class="btn btn-secondary btn-sm" onclick="deletarCurriculo('<%= curriculo._id %>')">Deletar</button></li>
-                        </div>
-                    </div>
-                </div>
-            <% }); %>          
-        </div>
+                    <% } %>
+                <% }); %>
+            </div>
 
-        <div id="curriculosArquivados" class="container overflow-auto">
-            <% curriculosArquivados.forEach(function(curriculo) { %>
-                <div class ="row finalBorder" id="listaCurriculo">
-                    <div class = "col-1 align-self-center">
-                        <input type="checkbox" id="<%= curriculo._id %>">
-                    </div>
-                    <div class = "col-4 col-lg-6 align-self-center">    
-                        <a href="/curriculo/<%= curriculo._id %>"><%= curriculo.perfil.nome %></a>
-                    </div>
-                    <div class = "col-1 align-self-center">
-                        <span>Pontuação: <%= curriculo.pontuacao %></span>
-                    </div>
-                    <div class = "col-3 col-lg-2 align-self-center">
-                        <button class="btn btn-secondary btn-md" onclick="desarquivarCurriculo('<%= curriculo._id %>')">Desarquivar</button>
-                    </div>
-                    <div class = "col-3 col-lg-2 align-self-center">
-                        <button class="btn btn-secondary btn-md" onclick="deletarCurriculo('<%= curriculo._id %>')">Deletar</button>
-                    </div>
-                </div>
-            <% }); %>
-        </div>
-
+            <div id="curriculosArquivados<%= vaga._id %>" class="container overflow-auto d-none">
+                <% arquivados.forEach(function(curriculo) { %>
+                    <% if (curriculo.vaga == vaga.nome) {%>
+                        <div class ="row finalBorder" id="listaCurriculo">
+                            <div class = "col-1 align-self-center">
+                                <input type="checkbox" id="<%= curriculo._id %>">
+                            </div>
+                            <div class = "col-4 col-lg-6 align-self-center">    
+                                <a href="/curriculo/<%= curriculo._id %>"><%= curriculo.perfil.nome %></a>
+                            </div>
+                            <div class = "col-1 align-self-center">
+                                <span>Pontuação: <%= curriculo.pontuacao %></span>
+                            </div>
+                            <div class = "col-3 col-lg-2 align-self-center">
+                                <button class="btn btn-secondary btn-md" onclick="desarquivarCurriculo('<%= curriculo._id %>')">Desarquivar</button>
+                            </div>
+                            <div class = "col-3 col-lg-2 align-self-center">
+                                <button class="btn btn-secondary btn-md" onclick="deletarCurriculo('<%= curriculo._id %>')">Deletar</button>
+                            </div>
+                        </div>
+                    <% } %>  
+                <% }); %>
+            </div>
+        <% }); %>
         <script src="../public/javascript/jquery-3.4.1.min.js"></script>
         <script src="../public/javascript/scriptRecrutador.js"></script>
     </body>

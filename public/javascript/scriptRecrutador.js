@@ -1,4 +1,5 @@
 let selecionados = [];
+let selectedId;
 
 $(function() {
     $(document).ajaxStop(function(e) {
@@ -44,18 +45,30 @@ $(function() {
             });
         }
     });
-
-    $('[name="removerVagaCadastrada"]').on('submit', function(e) {
-        e.preventDefault();
-
+    $("[name='vaga']").on("change", function(e) {
         let vaga = $("[name='vaga']").val();
-        
-        $.ajax({
-            method: 'DELETE',
-            url: 'recrutador/deletarVaga/' + vaga
-        });
+        if(vaga !== "selecione"); {
+            if (selectedId != undefined) {
+                $("#curriculosNaoArquivados" + selectedId).addClass("d-none");
+            }
+            $("#curriculosNaoArquivados" + vaga).removeClass("d-none");
+            selectedId = vaga;
+        }
     });
 });
+
+function removerVaga() {
+    let vaga = $("[name='vaga']").val();
+    
+    $.ajax({
+        method: 'DELETE',
+        url: 'recrutador/deletarVaga/' + vaga
+    });
+}
+
+function filtrar(curriculosArquivados, curriculosNaoArquivados) {
+    console.log(curriculosArquivados);
+}
 
 function arquivarCurriculo(curriculoId) {
     $.ajax({
