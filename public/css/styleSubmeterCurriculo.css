@@ -42,10 +42,8 @@ input[type=text]:hover, textarea:hover, input[type=email]:hover, textarea:hover,
 }
 
 h1 {
-    border-radius:4px;
-    -moz-border-radius:4px;
-    -webkit-border-radius:10px;
-    text-align: center;
+    position: relative;
+    padding-top: 2.5%;
 }
 
 html {
@@ -61,4 +59,11 @@ html {
 
 #formEscondido {
     display: none;
+}
+
+.avg{
+    margin-bottom: 2%;
+    padding-top: 2%;
+    display: block;
+    margin-right: 1%;
 }
