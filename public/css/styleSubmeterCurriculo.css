@@ -14,7 +14,7 @@ body form{
     background-image: linear-gradient(240deg, rgb(245, 244, 244)) !important;
 }
 
-input[type=text]:focus, input[type=email]:focus, input[type=date]:focus, input[type=url]:focus,input[type=number]:focus, #comentarios:focus, #descricao:focus, #infadd:focus{   
+input[type=text]:focus, input[type=email]:focus, input[type=date]:focus, input[type=url]:focus,input[type=number]:focus, #comentarios:focus, #descricao:focus, #infadd:focus, #estado:focus, #idiomasec:focus{   
   border-color: #2ecc71;
   background-color : #191919;
 }
@@ -31,7 +31,7 @@ input[type=text]:focus, input[type=email]:focus, input[type=date]:focus, input[t
     box-shadow: 0px 3px 5px 0px rgb(0, 0, 0);
 }
 
-input[type=text], input[type=email], input[type=date],input[type=url],input[type=number],#comentarios, #descricao, #infadd{ 
+input[type=text], input[type=email], input[type=date],input[type=url],input[type=number],#comentarios, #descricao, #infadd, #estado, #idiomasec{ 
     border:0;
     background: none;
     display: block;
