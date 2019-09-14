@@ -22,7 +22,7 @@
         </a>
     </nav>
     <div id="principal">
-        <form name="curriculo" class="container " method="POST" action="/submeterCurriculo" id="pagperfil">
+        <form name="curriculo" class="container" method="POST" action="/submeterCurriculo" id="pagperfil">
             <div id="seletorDeVaga">
                 <select name="vaga">
                     <% vagas.forEach(function(vaga) { %>
@@ -34,13 +34,13 @@
             </div>
             <div id="formEscondido">
                 <div id="perfil">
-                    <div class="row m-2 text-black">
+                    <div class="row m-2">
                         <h1>Perfil</h1>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-12 col-lg-9">
-                            <input type="text" class="form-control" placeholder="Nome Completo*" name="perfil[nome]"
-                                required>
+                            <label>Nome*</label>
+                            <input type="text" class="form-control" placeholder="Nome Completo*" name="perfil[nome]" required>
                         </div>
                         <div class="form-group col-12 col-lg-3">
                             <label>Data de nascimento*</label>
@@ -122,7 +122,7 @@
                     </div>
                 </div>
                 <div id="formacao">
-                    <div class="row m-2 text-black">
+                    <div class="row m-2">
                         <h1>Formação</h1>
                     </div>
                     <button type="button" value="Adicionar formação" onclick="adicionarFormacao()"
@@ -131,7 +131,7 @@
                         class="avg btn btn-outline-secondary">Remover formação</button>
                 </div>
                 <div id="idiomas">
-                    <div class="row m-2 text-black">
+                    <div class="row m-2">
                         <h1>Idiomas</h1>
                     </div>
                     <button type="button" value="Adicionar idioma" onclick="adicionarIdioma()"
@@ -140,7 +140,7 @@
                         class="avg btn btn-outline-secondary">Remover idioma</button>
                 </div>
                 <div id="experiencia">
-                    <div class="row m-2 text-black">
+                    <div class="row m-2">
                         <h1>Experiências</h1>
                     </div>
                     <button type="button" value="Adicionar experiência" onclick="adicionarExperiencia()"
@@ -149,7 +149,7 @@
                         class="avg btn btn-outline-secondary">Remover experiencia</button>
                 </div>
                 <div id="adicionais">
-                    <div class="row m-1 text-black">
+                    <div class="row m-1">
                         <h1>Informações adicionais</h1>
                     </div>
                     <textarea class="form-control" rows="5" name="informacoesAdicionais"
@@ -247,7 +247,7 @@
                 </div>
             </div>
             <label for="descricao">Descrição do cargo:</label>
-            <textarea class="form-control" rows="5" id="descricao" name="experiencias[0][descricao]"
+            <textarea class="test form-control" rows="5" style="border:inset 4px orange" id="descricao" name="experiencias[0][descricao]"
                 required></textarea>
         </div>
     </div>
