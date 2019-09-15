@@ -16,13 +16,13 @@ body{
 }
 
 #listaCurriculo{
-    background-color:whitesmoke;
-    border-top: 1px solid #a3a3c2;
-    border-right: 1px solid #a3a3c2;
-    border-right: 1px solid #a3a3c2;
+    background-color: rgba(215, 222, 219 ,0.55); 
+    border-top: 1px solid rgba(32, 102, 72, 0.9); 
+    border-right: 1px solid rgba(32, 102, 72, 0.9); 
+    border-right: 1px solid rgba(32, 102, 72, 0.9); 
     min-height: 120px;
 }
 
 .finalBorder:last-child {
-    border-bottom: 1px solid #a3a3c2;
+    border-bottom: 1px solid  rgba(32, 102, 72, 0.9);
 }
