@@ -85,6 +85,9 @@ module.exports = function(app) {
             });
 
             Vaga.find({}).then(vagas => {
+                vagas.sort(function(a, b) {
+                    return a.nome.toLowerCase() > b.nome.toLowerCase();
+                });
                 res.render('recrutador', {arquivados, naoArquivados, vagas});
             });
         });
@@ -92,9 +95,6 @@ module.exports = function(app) {
 
     app.get('/curriculo/:id', function(req, res) {
         Curriculo.find({_id: req.params.id}, function(err, curriculo) {
-            console.log("*--------------------*")
-            console.log('-');
-            console.log(JSON.stringify(curriculo));
             res.render('curriculo', {curriculo: curriculo});
         });
     })
