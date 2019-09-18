@@ -70,6 +70,16 @@ $(function() {
             selectedId = vaga;
         }
     });
+    $("#pesquisaPorNome").on("input", function(e) {
+        const nome = $(this).val();
+        $('.nome').each(function() {
+            if (!$(this).text().includes(nome)) {
+                $(this).parent().parent().parent().addClass('d-none');
+            } else {
+                $(this).parent().parent().parent().removeClass('d-none');
+            }
+        });
+    });
 });
 
 function mostrarModal(paraQuem) {
