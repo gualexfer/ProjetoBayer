@@ -114,16 +114,14 @@ module.exports = function(app) {
         .then(curriculo => {res.send(curriculo)});
     });
 
-    app.post('/recrutador/inserirVaga/:vaga', function(req, res) {
-        let vaga = {
-            nome: req.params.vaga
-        }
+    app.post('/recrutador/inserirVaga/', urlencodedParser, function(req, res) {
+
+        const vaga = req.body;
 
         Vaga(vaga).save(function(err) {
             if (err) throw err;
-        });
-
-        res.send("Vaga cadastrada com sucesso!");
+        })
+        .then(vaga => {res.send(vaga)});
     });
 
     app.delete('/recrutador/deletarVaga/:id', function(req, res) {

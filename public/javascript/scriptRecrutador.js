@@ -46,12 +46,17 @@ $(function() {
     $('[name="inserirNovaVaga"]').on('submit', function(e) {
         e.preventDefault();
 
-        let vaga = $("#nome").val();
+        let nome = $("#nome").val();
+        let palavrasChave = $("#palavrasChave").val().trim().split(',');
 
-        if (vaga != '') {
+        if (nome != '') {
             $.ajax({
                 method: 'POST',
-                url: 'recrutador/inserirVaga/' + vaga
+                url: 'recrutador/inserirVaga/',
+                data: {
+                    nome,
+                    palavrasChave
+                }
             });
         }
     });
