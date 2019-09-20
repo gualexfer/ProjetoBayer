@@ -1,7 +1,7 @@
 const express = require('express');
 const bayerController = require('./controllers/bayerController');
 const app = express();
-const port = 3000;
+const port = 3003;
 
 app.set('view engine', 'ejs');
 
