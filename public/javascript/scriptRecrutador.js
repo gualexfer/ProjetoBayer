@@ -93,9 +93,6 @@ function mostrarModal(paraQuem) {
         $("#modalYes").attr("onClick", "desarquivarSelecionados()");
     } else if (paraQuem === 'arquivar') {
         $("#modal-body-text").text("Deseja realmente arquivar todos os selecionados?");
-        let clone = $("#email").clone(true);
-        $(clone).removeAttr('hidden');
-        $("#modal-body-text").append(clone);
         $("#modalYes").attr("onClick", "arquivarSelecionados()");
     } else if (paraQuem === 'deletar') {
         $("#modal-body-text").text("Deseja realmente deletar todos os selecionados?");
