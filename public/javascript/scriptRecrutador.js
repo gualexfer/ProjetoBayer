@@ -1,13 +1,13 @@
 let selecionados = [];
 let selectedId;
-
+ 
 $(function() {
     $(document).ajaxStop(function(e) {
-        location.reload(true); 
+        location.reload(true);
     });
-
+ 
     $('#exibirArquivados').click(function(e) {
-        let vaga = $("[name='vaga']").val();
+        let vaga = $("[name='vagaCurriculo']").val();
         if (vaga !== "selecione") {
             $("#curriculosArquivados" + vaga).removeClass('d-none');
             $("#curriculosNaoArquivados" + vaga).addClass('d-none');
@@ -15,9 +15,9 @@ $(function() {
             $("#arquivarSelecionados").attr("onClick", "mostrarModal('desarquivar')");
         }
     });
-
+ 
     $('#exibirNaoArquivados').click(function(e) {
-        let vaga = $("[name='vaga']").val();
+        let vaga = $("[name='vagaCurriculo']").val();
         if (vaga !== "selecione") {
             $("#curriculosArquivados" + vaga).addClass('d-none');
             $("#curriculosNaoArquivados" + vaga).removeClass('d-none');
@@ -25,7 +25,7 @@ $(function() {
             $("#arquivarSelecionados").attr("onClick", "mostrarModal('arquivar')");
         }
     });
-
+ 
     $('input[type="checkbox"]').on('change', function(e) {
         if (this.checked) {
             selecionados.push(this.id);
@@ -33,22 +33,22 @@ $(function() {
             selecionados.splice(selecionados.indexOf(this.id), 1);
         }
     });
-
+ 
     $('.activable').on('click', function(e) {
-        let vaga = $("[name='vaga']").val();
-        
+        let vaga = $("[name='vagaCurriculo']").val();
+       
         if (vaga !== "selecione") {
             $('.row').find('.active').removeClass('active');
             $(this).addClass("active");
         }
     });
-
+ 
     $('[name="inserirNovaVaga"]').on('submit', function(e) {
         e.preventDefault();
-
+ 
         let nome = $("#nome").val();
         let palavrasChave = $("#palavrasChave").val().trim().split(',');
-
+ 
         if (nome != '') {
             $.ajax({
                 method: 'POST',
@@ -60,20 +60,8 @@ $(function() {
             });
         }
     });
-    $("[name='vaga']").on("change", function(e) {
-        let vaga = $("[name='vaga']").val();
-        if(vaga !== "selecione") {
-            if (selectedId != undefined) {
-                $("#curriculosNaoArquivados" + selectedId).addClass("d-none");
-                $("#curriculosArquivados" + selectedId).addClass("d-none");
-                $('#exibirArquivados').removeClass('active');
-                $('#exibirNaoArquivados').addClass('active');
-                $("#arquivarSelecionados").attr("value", "Aquivar selecionados");
-                $("#arquivarSelecionados").attr("onClick", "mostrarModal('arquivar')");
-            }
-            $("#curriculosNaoArquivados" + vaga).removeClass("d-none");
-            selectedId = vaga;
-        }
+    $("[name='vagaCurriculo']").on("change", function(e) {
+        alterarVaga();
     });
     $("#pesquisaPorNome").on("input", function(e) {
         const nome = $(this).val();
@@ -86,7 +74,23 @@ $(function() {
         });
     });
 });
-
+ 
+function alterarVaga() {
+    let vaga = $("[name='vagaCurriculo']").val();
+        if(vaga !== "selecione") {
+            if (selectedId != undefined) {
+                $("#curriculosNaoArquivados" + selectedId).addClass("d-none");
+                $("#curriculosArquivados" + selectedId).addClass("d-none");
+                $('#exibirArquivados').removeClass('active');
+                $('#exibirNaoArquivados').addClass('active');
+                $("#arquivarSelecionados").attr("value", "Aquivar selecionados");
+                $("#arquivarSelecionados").attr("onClick", "mostrarModal('arquivar')");
+            }
+            $("#curriculosNaoArquivados" + vaga).removeClass("d-none");
+            selectedId = vaga;
+    }
+}
+ 
 function mostrarModal(paraQuem) {
     if (paraQuem === 'desarquivar') {
         $("#modal-body-text").text("Deseja realmente desarquivar todos os selecionados?");
@@ -99,51 +103,59 @@ function mostrarModal(paraQuem) {
         $("#modalYes").attr("onClick", "deletarSelecionados()");
     }
 }
-
-function removerVaga() {
-    let vaga = $("[name='vaga']").val();
-    
-    if (vaga !== "selecione") {
-        $.ajax({
-            method: 'DELETE',
-            url: 'recrutador/deletarVaga/' + vaga
-        });
+ 
+function exibir(elemento) {
+    if (elemento === "vagas") {
+        $(".containerVaga").removeClass('d-none');
+        $(".containerCurriculo").addClass('d-none');
+        $(".divCurriculo").addClass('d-none');
+    } else {
+        $(".containerVaga").addClass('d-none');
+        $(".containerCurriculo").removeClass('d-none');
+        $(".divCurriculo").removeClass('d-none');
     }
 }
-
+ 
+function removerVaga(vagaId) {
+    $.ajax({
+        method: 'DELETE',
+        url: 'recrutador/deletarVaga/' + vagaId
+    });
+}
+ 
 function arquivarCurriculo(curriculoId) {
     $.ajax({
         method: 'PUT',
         url: 'curriculo/' + curriculoId + '/arquivar/'
     });
 }
-
+ 
 function desarquivarCurriculo(curriculoId) {
     $.ajax({
         method: 'PUT',
         url: 'curriculo/' + curriculoId + '/desarquivar/'
     });
 }
-
+ 
 function deletarCurriculo(curriculoId) {
     $.ajax({
         type: 'DELETE',
         url: 'curriculo/' + curriculoId
     });
 }
-
+ 
 function arquivarSelecionados() {
     selecionados.forEach(selecionado => {
         arquivarCurriculo(selecionado);
     });
 }
-
+ 
 function deletarSelecionados() {
     selecionados.forEach(selecionado => {
         deletarCurriculo(selecionado);
     });
 }
-
+ 
 function desarquivarSelecionados() {
     selecionados.forEach(selecionado => {
         desarquivarCurriculo(selecionado);
