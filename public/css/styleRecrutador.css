@@ -20,7 +20,7 @@ body{
     border-top: 1px solid rgba(32, 102, 72, 0.9); 
     border-right: 1px solid rgba(32, 102, 72, 0.9); 
     border-right: 1px solid rgba(32, 102, 72, 0.9); 
-    min-height: 120px;
+    min-height: 70px;
 }
 
 .nav-link {
