@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const NaturalLanguageUnderstandingV1 = require('ibm-watson/natural-language-understanding/v1.js');
 const naturalLanguageUnderstanding = new NaturalLanguageUnderstandingV1({
   version: '2019-07-12',
-  iam_apikey: '7qRMT1gH5VMb0tNfCL1BoqeyKojhgLpBrE_UCOTMrRj5',
+  iam_apikey: 'wMVgjQjL7SJ8GfHy6BaddAmDrVsya51wnDP47l0YLB5h',
   url: 'https://gateway.watsonplatform.net/natural-language-understanding/api'
 });
 const Curriculo = require('../models/curriculo');
@@ -34,7 +34,7 @@ module.exports = function(app) {
                 'limit': 3
               },
               'entities': {
-                'model': 'e809a1ae-1ec8-447a-a2bd-9502e3d6b18e'
+                'model': 'cf16677c-8d0a-4d39-890d-027b23f8db0e'
               }
             }
         };
