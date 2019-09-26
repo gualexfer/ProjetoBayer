@@ -108,11 +108,11 @@ function exibir(elemento) {
     if (elemento === "vagas") {
         $(".containerVaga").removeClass('d-none');
         $(".containerCurriculo").addClass('d-none');
-        $(".divCurriculo").addClass('d-none');
+        $(".finalBorder").addClass('d-none');
     } else {
         $(".containerVaga").addClass('d-none');
         $(".containerCurriculo").removeClass('d-none');
-        $(".divCurriculo").removeClass('d-none');
+        $(".finalBorder").removeClass('d-none');
     }
 }
  
