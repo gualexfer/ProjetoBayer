@@ -67,27 +67,28 @@
         </div>
     </div>
     <div class="container containerCurriculo" id="upper-div">
-        <div class="row py-4">
-            <input type="button" id="arquivarSelecionados" class="btn btn-secondary btn-sm col-6 col-md-3 col-lg-2"
-                value="Arquivar selecionados" data-toggle="modal" data-target="#modal"
-                onclick="mostrarModal('arquivar')">
-            <input type="button" id="deletarSelecionados" class="btn btn-secondary btn-sm col-6 col-md-3 col-lg-2"
-                value="Deletar selecionados" data-toggle="modal" data-target="#modal" onclick="mostrarModal('deletar')">
-            <input type="button" id="exibirArquivados"
-                class="btn btn-secondary btn-sm col-6 col-md-3 col-lg-2 offset-lg-4 activable"
-                value="Exibir arquivados">
-            <input type="button" id="exibirNaoArquivados"
-                class="btn btn-secondary btn-sm active col-6 col-md-3 col-lg-2 activable" value="Exibir não arquivados">
-        </div>
-        <div class="row pb-4">
-            <input type="text" id="pesquisaPorNome" placeholder="Pesquisar por nome">
-            <select name="vagaCurriculo">
+        <div class="row pt-5 pb-4">
+            <span class="col-lg-1" style="color:#e9e7e7">Vaga :</span>
+            <select name="vagaCurriculo" class="col-lg-3 form-control-sm">
                 <option value="selecione">Selecione uma vaga</option>
                 <% vagas.forEach(function(vaga) { %>
                     <option value="<%= vaga._id %>"><%= vaga.nome %></option>
                 <% }); %>
-            </select>
+            </select>            
+
+            <input type="text" class="col-lg-2 offset-lg-1 form-control-sm" id="pesquisaPorNome" placeholder="Pesquisar por nome">
+
+            <input type="button" id="exibirArquivados"
+                class="btn btn-secondary btn-sm activable col-lg-2 offset-lg-1" value="Arquivados">
+            <input type="button" id="exibirNaoArquivados"
+                class="btn btn-secondary btn-sm active activable col-lg-2" value="Não Arquivados">
+        
         </div>
+        <!-- <input type="button" id="arquivarSelecionados" class="btn btn-secondary btn-sm col-6 col-md-3 col-lg-2" 
+                value="Arquivar selecionados" data-toggle="modal" data-target="#modal"
+                onclick="mostrarModal('arquivar')">
+            <input type="button" id="deletarSelecionados" class="btn btn-secondary btn-sm col-6 col-md-3 col-lg-2"
+                value="Deletar selecionados" data-toggle="modal" data-target="#modal" onclick="mostrarModal('deletar')"> -->
     </div>
     <% vagas.forEach(function(vaga) { %>
     <div id="curriculosNaoArquivados<%= vaga._id %>" class="container overflow-auto d-none">
