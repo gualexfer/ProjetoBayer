@@ -60,13 +60,15 @@ $(function(e) {
     });
 
     $('input[type="text"]').focusout(function(e) {
-        if ($(this).val() != "") {
-            $(this).addClass("is-valid");
-            $(this).removeClass("is-invalid");
-        }
-        else {
-            $(this).addClass("is-invalid");
-            $(this).removeClass("is-valid");
+        if($(this).attr("id") != "complemento") {
+            if ($(this).val() != "") {
+                $(this).addClass("is-valid");
+                $(this).removeClass("is-invalid");
+            }
+            else {
+                $(this).addClass("is-invalid");
+                $(this).removeClass("is-valid");
+            }
         }
     });
 
