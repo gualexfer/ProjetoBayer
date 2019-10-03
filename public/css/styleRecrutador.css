@@ -15,7 +15,14 @@ body{
     min-height: 100vh;
 }
 
+.nome{
+    
+    color: #e9e7e7; 
+}
+
 .finalBorder{
+    font-family: 'Roboto', sans-serif;
+    color: #e9e7e7;
     background-color: rgba(215, 222, 219 ,0.55); 
     border-top: 1px solid rgba(32, 102, 72, 0.9); 
     border-right: 1px solid rgba(32, 102, 72, 0.9); 

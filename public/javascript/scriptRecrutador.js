@@ -88,7 +88,13 @@ function alterarVaga() {
             }
             $("#curriculosNaoArquivados" + vaga).removeClass("d-none");
             selectedId = vaga;
-    }
+
+            $("#arquivarSelecionados").removeClass('d-none');
+            $("#deletarSelecionados").removeClass('d-none');
+        } else {
+            $("#arquivarSelecionados").addClass('d-none');
+            $("#deletarSelecionados").addClass('d-none');
+        }
 }
  
 function mostrarModal(paraQuem) {
@@ -108,11 +114,11 @@ function exibir(elemento) {
     if (elemento === "vagas") {
         $(".containerVaga").removeClass('d-none');
         $(".containerCurriculo").addClass('d-none');
-        $(".finalBorder").addClass('d-none');
+        $("#divVaga").addClass('d-none');
     } else {
         $(".containerVaga").addClass('d-none');
         $(".containerCurriculo").removeClass('d-none');
-        $(".finalBorder").removeClass('d-none');
+        $("#divCurriculo").removeClass('d-none');
     }
 }
  

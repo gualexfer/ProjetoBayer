@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../public/css/styleCurriculo.css" type="text/css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -14,45 +15,60 @@
 
 <body>
     
-    <div id="perfil">
-        <h1><%= curriculo[0].perfil.nome %></h1>
-        <p>Vaga desejada: <%= curriculo[0].vaga %></p>
-        <p><%= curriculo[0].perfil.idade %> anos, <%= curriculo[0].perfil.dataDeNascimento %></p>
-        <p><%= curriculo[0].contato.endereco %> - <%= curriculo[0].contato.bairro %> -
-            <%= curriculo[0].contato.cidade %> - <%= curriculo[0].contato.estado %></p>
-        <p>Telefone: <%= curriculo[0].contato.telefone %></p>
-        <p>E-mail: <%= curriculo[0].contato.email %></p>
-        <p>Website: <%= curriculo[0].contato.website %></p>
+    <div id="perfil" class="p-4">
+        <h1 class="display-4 text-center"><%= curriculo[0].perfil.nome %></h1>    
+        <p class="text-center">Vaga desejada: <%= curriculo[0].vaga %></p>
+        <div class="container">
+            <div class="row p-2">    
+                <p class="col-12 col-lg-4">Idade: <%= curriculo[0].perfil.idade %> anos, <%= curriculo[0].perfil.dataDeNascimento %></p>
+                <p class="col-12 col-lg-4" >Telefone: <%= curriculo[0].contato.telefone %></p>
+                <p class="col-12 col-lg-4">E-mail: <%= curriculo[0].contato.email %></p>
+                <p class="col-lg-12">Endereço: <%= curriculo[0].contato.endereco %> - <%= curriculo[0].contato.bairro %> - 
+                    <%= curriculo[0].contato.cidade %> - <%= curriculo[0].contato.estado %></p>
+            </div>
+        </div>
     </div>
     
-    <div id="formacao">
+    <div id="formacao" class="container p-4">
         <h2>Formação</h2>
-        <% curriculo[0].formacao.forEach(function(formacao) { %>
-        <p><%= formacao.instituicao %> (<%= formacao.inicioDaFormacao %> - <%= formacao.fimDaFormacao %>)</p>
-        <p><%= formacao.titulo %></p>
-        <p><%= formacao.comentarios %></p>
-        <% }) %>
-    </div>
+        <div class="container">
+                <% curriculo[0].formacao.forEach(function(formacao) { %>
+            <div class="row">
+                <p class="col-lg-3"><%= formacao.titulo %></p>
+                <p class="col-lg-3"><%= formacao.instituicao %> (<%= formacao.inicioDaFormacao %> - <%= formacao.fimDaFormacao %>)</p>
+            </div>
+            <div class="row">    
+                <p class="col-lg-12"><%= formacao.comentarios %></p>
+            </div>
+                <% }) %>
+        </div>
+    </div>    
     
-    <div id="idiomas">
+    <div id="idiomas" class="container p-4">
         <h2>Idiomas</h2>
-        <% curriculo[0].idiomas.forEach(function(idioma) { %>
-        <p><%= idioma.idioma %> - <%= idioma.nivelDeFluencia %> - <%= idioma.instituicao %></p>
-        <% }) %>
+        <div class="container">
+            <% curriculo[0].idiomas.forEach(function(idioma) { %>
+            <p><%= idioma.idioma %> - <%= idioma.nivelDeFluencia %> - <%= idioma.instituicao %></p>
+            <% }) %>
+        </div>
     </div>
     
-    <div id="experiencias">
+    <div id="experiencias" class="container p-4">
         <h2>Experiências</h2>
+        <div class="container">
         <% curriculo[0].experiencias.forEach(function(experiencia) { %>
-        <p><%= experiencia.cargo %> (<%= experiencia.inicioDaExperiencia %> - <%= experiencia.fimDaExperiencia %>)</p>
-        <p><%= experiencia.empresa %></p>
-        <p><%= experiencia.descricao %></p>
+            <p><%= experiencia.cargo %> (<%= experiencia.inicioDaExperiencia %> - <%= experiencia.fimDaExperiencia %>)</p>
+            <p><%= experiencia.empresa %></p>
+            <p><%= experiencia.descricao %></p>
+        </div>
         <% }) %>
     </div>
     
-    <div id="adicionais">
+    <div id="adicionais" class="container p-4">
         <h2>Informações adicionais</h2>
-        <%= curriculo[0].informacoesAdicionais %>
+        <div class="container">
+            <%= curriculo[0].informacoesAdicionais %>
+        </div>
     </div>
     
 </body>
