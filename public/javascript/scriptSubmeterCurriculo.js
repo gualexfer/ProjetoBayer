@@ -117,6 +117,7 @@ function calcularIdade(dataDeNascimento, dataDeHoje) {
 function selecionar() {
     $("#seletorDeVaga").css('display', 'none');
     $("#formEscondido").css('display', 'inline');
+    $("#pagperfil").removeClass("form-inline");
 }
 
 function adicionarIdioma() {

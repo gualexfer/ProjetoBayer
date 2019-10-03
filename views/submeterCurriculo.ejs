@@ -22,14 +22,14 @@
         </a>
     </nav>
     <div id="principal">
-        <form name="curriculo" class="container" method="POST" action="/submeterCurriculo" id="pagperfil">
+        <form name="curriculo" class="container form-inline" method="POST" action="/submeterCurriculo" id="pagperfil">
             <div id="seletorDeVaga">
-                <select name="vaga">
+                <select name="vaga" class="form-control">
                     <% vagas.forEach(function(vaga) { %>
                     <option value="<%= vaga.nome %>"><%= vaga.nome %></option>
                     <% }); %>
                 </select>
-                <input type="button" id="selecionarVaga" class="btn btn-secondary" value="Selecionar vaga"
+                <input type="button" id="selecionarVaga" class="btn btn-secondary form-control" value="Selecionar vaga"
                     onclick="selecionar()">
             </div>
             <div id="formEscondido">

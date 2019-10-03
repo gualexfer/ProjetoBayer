@@ -32,6 +32,14 @@ $(function() {
         } else {
             selecionados.splice(selecionados.indexOf(this.id), 1);
         }
+
+        if (selecionados[0] != undefined) {
+            $("#arquivarSelecionados").removeClass('d-none');
+            $("#deletarSelecionados").removeClass('d-none');
+        } else {
+            $("#arquivarSelecionados").addClass('d-none');
+            $("#deletarSelecionados").addClass('d-none');
+        }
     });
  
     $('.activable').on('click', function(e) {
@@ -89,11 +97,7 @@ function alterarVaga() {
             $("#curriculosNaoArquivados" + vaga).removeClass("d-none");
             selectedId = vaga;
 
-            $("#arquivarSelecionados").removeClass('d-none');
-            $("#deletarSelecionados").removeClass('d-none');
-        } else {
-            $("#arquivarSelecionados").addClass('d-none');
-            $("#deletarSelecionados").addClass('d-none');
+            
         }
 }
  
