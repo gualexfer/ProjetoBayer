@@ -33,6 +33,7 @@
                 </li>
             </ul>
     </nav>
+    
     <div class="container containerVaga d-none" id="upper-div">
         <div class="row">
             <form name="inserirNovaVaga" class="form-inline py-4 " method="POST">    
@@ -66,9 +67,9 @@
             <% }); %>
         </div>
     </div>
+
     <div class="container containerCurriculo mt-5" id="upper-div">
         <div class="row pb-4">
-       
             <span class="col-lg-1" style="color:#e9e7e7">Vaga :</span>
             <select name="vagaCurriculo" class="col-lg-3 form-control-sm ">
                 <option value="selecione">Selecione uma vaga</option>
@@ -76,16 +77,13 @@
                     <option value="<%= vaga._id %>"><%= vaga.nome %></option>
                 <% }); %>
             </select>            
-
             <input type="text" class="col-lg-2 offset-lg-1 form-control-sm" id="pesquisaPorNome" placeholder="Pesquisar por nome">
-
             <input type="button" id="exibirArquivados"
                 class="btn btn-secondary btn-sm activable col-lg-2 offset-lg-1" value="Arquivados">
             <input type="button" id="exibirNaoArquivados"
                 class="btn btn-secondary btn-sm active activable col-lg-2" value="Não Arquivados">
 
         </div>
-
     </div>
 
     <% vagas.forEach(function(vaga) { %>
