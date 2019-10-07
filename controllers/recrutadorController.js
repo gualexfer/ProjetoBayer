@@ -47,4 +47,10 @@ module.exports = function(app) {
         Vaga.findByIdAndDelete({_id: req.params.id})
         .then(vaga => {res.send(vaga)});
     });
+
+    app.put('/recrutador/alterarVaga/:id', urlencodedParser, function(req, res) {
+        Vaga.findOneAndUpdate({_id: req.params.id}, {palavrasChave: req.body.novasPalavrasChave})
+        .then(vaga => {res.send(vaga)})
+        .catch(err => {console.log(err)});
+    });
 }

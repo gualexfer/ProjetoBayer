@@ -55,8 +55,12 @@ $(function() {
         e.preventDefault();
  
         let nome = $("#nome").val();
-        let palavrasChave = $("#palavrasChave").val().trim().split(',');
- 
+        let palavrasChave = $("#palavrasChave").val().split(',');
+        
+        $.each(palavrasChave, function(index, value) {
+            palavrasChave[index] = palavrasChave[index].trim();
+        });
+
         if (nome != '') {
             $.ajax({
                 method: 'POST',
@@ -68,6 +72,7 @@ $(function() {
             });
         }
     });
+
     $("[name='vagaCurriculo']").on("change", function(e) {
         alterarVaga();
     });
@@ -82,6 +87,32 @@ $(function() {
         });
     });
 });
+
+function alterarPalavrasChave(vagaId) {
+    $("#form-alteracao" + vagaId).removeClass("d-none");
+}
+
+function enviarAlteracaoDeVaga(vagaId) {
+    let novasPalavrasChave = $("#novas-palavras-chave" + vagaId).val();
+
+    if (novasPalavrasChave != "") {
+        novasPalavrasChave = novasPalavrasChave.split(',');
+
+        $.each(novasPalavrasChave, function(index, value) {
+            novasPalavrasChave[index] = novasPalavrasChave[index].trim();
+        });
+        
+        $.ajax({
+            type: 'PUT',
+            url: 'recrutador/alterarVaga/' + vagaId,
+            data:  {
+                novasPalavrasChave
+            }
+        })
+    } else {
+        alert("Insira novas palavras-chave!");
+    }
+}
  
 function alterarVaga() {
     let vaga = $("[name='vagaCurriculo']").val();

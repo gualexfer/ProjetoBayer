@@ -63,6 +63,13 @@
                                 onclick="removerVaga('<%= vaga._id %>')"><i class="material-icons md-48">delete</i>
                             </button>
                         </div>
+                        <div>
+                            <button onClick="alterarPalavrasChave('<%= vaga._id %>')">Alterar</button>
+                        </div>
+                        <div id="form-alteracao<%= vaga._id %>" class="d-none">
+                            <input type="text" id="novas-palavras-chave<%= vaga._id %>" class="form-control" placeholder="Insira as novas palavras-chave separadas por vírgula.">
+                            <button class="form-control btn btn-secondary" onClick="enviarAlteracaoDeVaga('<%= vaga._id %>')">Alterar vaga</button>
+                        </div>
                 </div>
             <% }); %>
         </div>
