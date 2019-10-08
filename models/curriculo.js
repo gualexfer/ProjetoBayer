@@ -1,27 +1,66 @@
 const mongoose = require('mongoose');
 
 const curriculoSchema = new mongoose.Schema({
-    vaga: String,
+    vaga: {
+        type: String,
+        required: true
+    },
     perfil: {
-        nome: String,
-        idade: String,
-        dataDeNascimento: String,
-        estadoCivil: String,
-        nacionalidade: String
+        nome: {
+            type: String,
+            required: true
+        },
+        idade: {
+            type: String,
+            required: true
+        },
+        dataDeNascimento: {
+            type: String,
+            required: true
+        }
     },
     contato: {
-        cep: String,
-        endereco: String,
-        numero: String,
-        complemento: String,
-        bairro: String,
-        cidade: String,
-        estado: String,
-        telefone: String,
-        email: String,
-        website: String
+        cep: {
+            type: String,
+            required: true
+        },
+        endereco: {
+            type: String,
+            required: true
+        },
+        numero: {
+            type: String,
+            required: true
+        },
+        complemento: {
+            type: String,
+            required: true
+        },
+        bairro: {
+            type: String,
+            required: true
+        },
+        cidade: {
+            type: String,
+            required: true
+        },
+        estado: {
+            type: String,
+            required: true
+        },
+        telefone: {
+            type: String,
+            required: true
+        },
+        email: {
+            type: String,
+            required: true
+        }
     },
-    formacao: Array
+    formacao: {
+        type: Array,
+        required: true
+    },
         // {
         //     titulo: String,
         //     instituicao: String,
@@ -29,14 +68,19 @@ const curriculoSchema = new mongoose.Schema({
         //     fimDaFormacao: String,
         //     comentarios: String
         // }
-    ,
-    idiomas: Array,
+    idiomas: {
+        type: Array,
+        required: true
+    },
             // {
             //     idioma: String,
             //     nivelDeFluencia: String
             //     instituicao: String
             // }
-    experiencias: Array
+    experiencias: {
+        type: Array,
+        required: true
+    },
         // {
         //     cargo: String,
         //     empresa: String,
@@ -44,13 +88,19 @@ const curriculoSchema = new mongoose.Schema({
         //     fimDaExperiencia: String,
         //     descricao: String
         // }
-    ,
-    informacoesAdicionais: String,
+    informacoesAdicionais: {
+        type: String,
+        required: false
+    },
     arquivado: {
         type: Boolean,
+        required: true,
         default: false
     },
-    pontuacao: Number
+    pontuacao: {
+        type: Number,
+        required: true
+    }
 });
 
 const Curriculo = mongoose.model('Curriculo', curriculoSchema);

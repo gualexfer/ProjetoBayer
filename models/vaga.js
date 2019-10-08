@@ -1,8 +1,14 @@
 const mongoose = require('mongoose');
 
 const vagaSchema = new mongoose.Schema({
-    nome: String,
-    palavrasChave: Array
+    nome: {
+        type: String,
+        required: true
+    },
+    palavrasChave: {
+        type: Array,
+        required: true
+    }
 });
 
 const Vaga = mongoose.model('Vaga', vagaSchema);
