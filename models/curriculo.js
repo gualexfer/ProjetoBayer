@@ -34,7 +34,7 @@ const curriculoSchema = new mongoose.Schema({
         },
         complemento: {
             type: String,
-            required: true
+            required: false
         },
         bairro: {
             type: String,
