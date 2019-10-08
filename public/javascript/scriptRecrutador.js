@@ -148,12 +148,12 @@ function mostrarModal(paraQuem) {
 function exibir(elemento) {
     if (elemento === "vagas") {
         $(".containerVaga").removeClass('d-none');
-        $("#divCurriculo").addClass('d-none');
-        $("#divVaga").addClass('d-none');
+        $(".divCurriculo").addClass('d-none');
+        $("#controleDeVagas").addClass('d-none');
     } else {
         $(".containerVaga").addClass('d-none');
-        $("#divVaga").removeClass('d-none');
-        $("#divCurriculo").removeClass('d-none');
+        $(".divCurriculo").removeClass('d-none');
+        $("#controleDeVagas").removeClass('d-none');
     }
 }
  
