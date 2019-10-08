@@ -63,7 +63,7 @@ $(function() {
 
         if (nome != '') {
             $.ajax({
-                method: 'POST',
+                type: 'POST',
                 url: 'recrutador/inserirVaga/',
                 data: {
                     nome,
@@ -159,21 +159,21 @@ function exibir(elemento) {
  
 function removerVaga(vagaId) {
     $.ajax({
-        method: 'DELETE',
+        type: 'DELETE',
         url: 'recrutador/deletarVaga/' + vagaId
     });
 }
  
 function arquivarCurriculo(curriculoId) {
     $.ajax({
-        method: 'PUT',
+        type: 'PUT',
         url: 'curriculo/' + curriculoId + '/arquivar/'
     });
 }
  
 function desarquivarCurriculo(curriculoId) {
     $.ajax({
-        method: 'PUT',
+        type: 'PUT',
         url: 'curriculo/' + curriculoId + '/desarquivar/'
     });
 }
