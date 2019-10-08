@@ -36,15 +36,13 @@
     
     <div class="container containerVaga d-none" id="upper-div">
         <div class="row">
-            <form name="inserirNovaVaga" class="form-inline py-4 " method="POST">
-                <div class="container">        
-                    <div class="row">
-                        <input type="text" id="nome" name="nome" class="form-control-sm col-lg-4" placeholder="Nova vaga..." required>
-                        <input type="text" id="palavrasChave" name="palavrasChave" class="form-control-sm col-lg-4" placeholder="Palavras-chave(opcional)">
-                        <input type="submit" id="submeterVaga" class="btn btn-sm btn-secondary col-lg-4" value="Inserir vaga">
-                    </div>
-                </div>    
+            <div class="container">
+            <form name="inserirNovaVaga" class="form-inline py-4 " method="POST">        
+                    <input type="text" id="nome" name="nome" class="form-control-sm col-lg-4" placeholder="Nova vaga..." required>
+                    <input type="text" id="palavrasChave" name="palavrasChave" class="form-control-sm col-lg-4" placeholder="Palavras-chave(opcional)">
+                    <input type="submit" id="submeterVaga" class="btn btn-sm btn-info col-lg-4" value="Inserir vaga">
             </form>
+            </div>
             <% vagas.forEach(function(vaga) { %>
                 <div class="container row finalBorder divVaga">
                     <div class="col-lg-6 align-self-center">
@@ -85,7 +83,7 @@
 
     <div class="container containerCurriculo mt-5" id="upper-div">
         <div class="row pb-4">
-            <span class="col-lg-1" style="color:#e9e7e7">Vaga :</span>
+            <span class="col-lg-1" style="color:#e9e7e7">Vaga:</span>
             <select name="vagaCurriculo" class="col-lg-3 form-control-sm ">
                 <option value="selecione">Selecione uma vaga</option>
                 <% vagas.forEach(function(vaga) { %>
@@ -94,9 +92,9 @@
             </select>            
             <input type="text" class="col-lg-2 offset-lg-1 form-control-sm" id="pesquisaPorNome" placeholder="Pesquisar por nome">
             <input type="button" id="exibirArquivados"
-                class="btn btn-secondary btn-sm activable col-lg-2 offset-lg-1" value="Arquivados">
+                class="btn btn-outline-info btn-sm activable col-lg-2 offset-lg-1" value="Arquivados">
             <input type="button" id="exibirNaoArquivados"
-                class="btn btn-secondary btn-sm active activable col-lg-2" value="Não Arquivados">
+                class="btn btn-outline-info btn-sm active activable col-lg-2" value="Não Arquivados">
 
         </div>
     </div>
