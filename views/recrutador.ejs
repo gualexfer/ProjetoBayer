@@ -36,10 +36,14 @@
     
     <div class="container containerVaga d-none" id="upper-div">
         <div class="row">
-            <form name="inserirNovaVaga" class="form-inline py-4 " method="POST">    
-                <input type="text" id="nome" name="nome" class="form-control-sm col-lg-4" placeholder="Nova vaga..." required>
-                <input type="text" id="palavrasChave" name="palavrasChave" class="form-control-sm col-lg-4" placeholder="Palavras-chave(opcional)">
-                <input type="submit" id="submeterVaga" class="btn btn-sm btn-secondary col-lg-4" value="Inserir vaga">
+            <form name="inserirNovaVaga" class="form-inline py-4 " method="POST">
+                <div class="container">        
+                    <div class="row">
+                        <input type="text" id="nome" name="nome" class="form-control-sm col-lg-4" placeholder="Nova vaga..." required>
+                        <input type="text" id="palavrasChave" name="palavrasChave" class="form-control-sm col-lg-4" placeholder="Palavras-chave(opcional)">
+                        <input type="submit" id="submeterVaga" class="btn btn-sm btn-secondary col-lg-4" value="Inserir vaga">
+                    </div>
+                </div>    
             </form>
             <% vagas.forEach(function(vaga) { %>
                 <div class="container row finalBorder divVaga">
@@ -58,18 +62,20 @@
                             <%= candidatos %>
                         </span>
                     </div>
-                    <div class="col-lg-2 d-flex justify-content-center text-center align-self-center">
-                        <button class="btn btn-outline-info btn-sm"
+                    <div class="col-lg-1 offset-lg-2 d-flex justify-content-center text-center align-self-center">
+                        <button class="btn btn-outline-info btn-sm" data-toggle="tooltip" title="Deletar"
                             onclick="removerVaga('<%= vaga._id %>')"><i class="material-icons md-48">delete</i>
                         </button>
                     </div>
-                    <div class="col-lg-2 d-flex justify-content-center text-center align-self-center">
-                        <button onClick="alterarPalavrasChave('<%= vaga._id %>')">Alterar</button>
+                    <div class="col-lg-1 d-flex justify-content-center text-center align-self-center">
+                        <button class ="btn btn-outline-info btn-sm" data-toggle="tooltip" title="Editar palavras chave"
+                            onClick="alterarPalavrasChave('<%= vaga._id %>')"><i class="material-icons md-48">edit</i>
+                        </button>
                     </div>
-                    <div id="form-alteracao<%= vaga._id %>" class="col-12 container d-none align-self-center">
-                        <div id="row">
-                            <input type="text" id="novas-palavras-chave<%= vaga._id %>" class="form-control col-6 offset-3" placeholder="Insira as novas palavras-chave separadas por vírgula.">
-                            <button class="form-control btn btn-secondary col-6 offset-3" onClick="enviarAlteracaoDeVaga('<%= vaga._id %>')">Alterar vaga</button>
+                    <div id="form-alteracao<%= vaga._id %>" class="col-12 container d-none align-self-center p-3">
+                        <div class="row "id="row">
+                            <input type="text" id="novas-palavras-chave<%= vaga._id %>" class="form-control form-control-sm col-lg-4 offset-lg-2" placeholder="Insira as novas palavras-chave separadas por vírgula.">
+                            <button class="form-control btn btn-sm btn-secondary col-lg-2 offset-lg-1" onClick="enviarAlteracaoDeVaga('<%= vaga._id %>')">Alterar vaga</button>
                         </div>
                     </div>
                 </div>
@@ -113,7 +119,7 @@
             </div>
             <div class="row col-12 col-sm-1 col-md-2 col-lg-2">
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 d-flex justify-content-center text-center align-self-center">
-                    <button class="btn btn-outline-info btn-sm" data-toggle="tooltip" data-placement="top" title="Arquivar" 
+                    <button class="btn btn-outline-info btn-sm" data-toggle="tooltip" title="Arquivar" 
                         onclick="arquivarCurriculo('<%= curriculo._id %>')"><i class="material-icons">archive</i>
                     </button>
                 </div>
@@ -145,11 +151,11 @@
             </div>
             <div class="row col-12 col-sm-1 col-md-2 col-lg-2">
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 d-flex justify-content-center text-center align-self-center">
-                    <button class="btn btn-outline-info btn-sm"
+                    <button class="btn btn-outline-info btn-sm" data-toggle="tooltip" title="Desarquivar"
                         onclick="desarquivarCurriculo('<%= curriculo._id %>')"><i class="material-icons md-48">unarchive</i></button>
                 </div>
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 d-flex justify-content-center text-center align-self-center">
-                    <button class="btn btn-outline-info btn-sm"
+                    <button class="btn btn-outline-info btn-sm" data-toggle="tooltip" title="Deletar"
                         onclick="deletarCurriculo('<%= curriculo._id %>')"><i class="material-icons md-48">delete</i></button>
                 </div>
             </div>
