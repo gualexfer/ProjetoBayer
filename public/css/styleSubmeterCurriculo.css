@@ -41,7 +41,7 @@ input[type=text], input[type=email], input[type=date],input[type=url],input[type
     border-radius: 24px;
     transition: 0.25s;
  }
- 
+
 html {
     scroll-behavior: smooth;
 }
@@ -104,14 +104,3 @@ a:hover .fa
 .faa-parent.animated-hover:hover > .faa-burst {
 	animation: burst 2s infinite linear
 }
-.faa-burst.animated.faa-fast,
-.faa-burst.animated-hover.faa-fast:hover,
-.faa-parent.animated-hover:hover > .faa-burst.faa-fast {
-	animation: burst 1s infinite linear
-}
-.faa-burst.animated.faa-slow,
-.faa-burst.animated-hover.faa-slow:hover,
-.faa-parent.animated-hover:hover > .faa-burst.faa-slow {
-	animation: burst 3s infinite linear
-}
-
