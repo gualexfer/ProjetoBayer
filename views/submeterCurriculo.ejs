@@ -8,18 +8,26 @@
     <link rel="stylesheet" href="../public/css/styleSubmeterCurriculo.css" type="text/css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-    <nav class="navbar sticky-top navbar-light bg-light">
-        <a class="navbar-brand" href="#">
-            <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30"
-                class="d-inline-block align-top" alt="">
-            Bayer
+    <nav class="navbar sticky-top navbar-light navbar-expand-sm navbar-expand-md navbar-expand-lg mr-auto" style="background: linear-gradient(to left top, #e9e7e7, #ebeaea)">
+        <a class="navbar-toggle collapsed" data-target="#navbar" data-toggle="collapse">
+            <i class="fa faa-vertical animated"></i>
         </a>
+        <a tabindex="0" class="navbar-brand faa-pulse faa-slow animated mb-0 h1" style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">
+            <i class="fa"></i>
+            <i class="fa fa-lg">B</i>
+            <i class="fa fa-lg">A</i>
+            <i class="fa fa-lg">Y</i>
+            <i class="fa fa-lg">E</i>
+            <i class="fa fa-lg">R</i>
+        </a>
+        <span class="navbar-brand mb-0 h1">Talent Acquisition</span>
     </nav>
     <div id="principal">
         <form name="curriculo" class="container form-inline" method="POST" action="/submeterCurriculo" id="pagperfil">
@@ -34,13 +42,13 @@
             </div>
             <div id="formEscondido">
                 <div id="perfil">
-                    <div class="row m-2">
-                        <h1>Perfil</h1>
+                    <div class="col-md-4">
+                        <i class="fa fa-circle-o faa-burst animated"></i> PERFIL
                     </div>
                     <div class="form-row">
                         <div class="form-group col-12 col-lg-9">
                             <label>Nome*</label>
-                            <input type="text" class="form-control" placeholder="Nome Completo*" name="perfil[nome]" required>
+                            <input type="text" class="form-control" placeholder="Nome Completo*" name="perfil[nome]" required>                          
                         </div>
                         <div class="form-group col-12 col-lg-3">
                             <label>Data de nascimento*</label>
@@ -116,36 +124,43 @@
                         </div>
                     </div>
                 </div>
+                <hr width="82%" style="border: 1px solid #5a5a5a"> 
                 <div id="formacao">
-                    <div class="row m-2">
-                        <h1>Formação</h1>
+                    <div class="col-md-4">
+                        <i class="fa fa-circle-o faa-burst animated"></i> FORMAÇÃO
                     </div>
                     <button type="button" value="Adicionar formação" onclick="adicionarFormacao()"
                         class="avg btn btn-outline-secondary">Adicionar formação</button>
                     <button type="button" value="Remover formação" onclick="removerFormacao()"
                         class="avg btn btn-outline-secondary">Remover formação</button>
                 </div>
+                <br>
+                <hr width="82%" style="border: 1px solid #5a5a5a"> 
                 <div id="idiomas">
-                    <div class="row m-2">
-                        <h1>Idiomas</h1>
+                    <div class="col-md-4">
+                        <i class="fa fa-circle-o faa-burst animated"></i> IDIOMAS
                     </div>
                     <button type="button" value="Adicionar idioma" onclick="adicionarIdioma()"
                         class="avg btn btn-outline-secondary">Adicionar idioma</button>
                     <button type="button" value="Remover idioma" onclick="removerIdioma()"
                         class="avg btn btn-outline-secondary">Remover idioma</button>
                 </div>
+                <br>
+                <hr width="82%" style="border: 1px solid #5a5a5a"> 
                 <div id="experiencia">
-                    <div class="row m-2">
-                        <h1>Experiências</h1>
+                    <div class="col-md-4">
+                        <i class="fa fa-circle-o faa-burst animated"></i> EXPERIÊNCIAS
                     </div>
                     <button type="button" value="Adicionar experiência" onclick="adicionarExperiencia()"
                         class="avg btn btn-outline-secondary">Adicionar experiência</button>
                     <button type="button" value="Remover experiencia" onclick="removerExperiencia()"
                         class="avg btn btn-outline-secondary">Remover experiencia</button>
                 </div>
+                <br>
+                <hr width="82%" style="border: 1px solid #5a5a5a"> 
                 <div id="adicionais">
-                    <div class="row m-1">
-                        <h1>Informações adicionais</h1>
+                    <div class="col-md-4">
+                        <i class="fa fa-circle-o faa-burst animated"></i> INFORMAÇÕES ADICIONAIS
                     </div>
                     <textarea class="form-control" rows="5" id= "infadd" name="informacoesAdicionais"
                         placeholder="Insira quaisquer informações que achar pertinentes."></textarea>
