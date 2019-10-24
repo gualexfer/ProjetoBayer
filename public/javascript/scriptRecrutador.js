@@ -182,13 +182,18 @@ function removerVaga(vagaId) {
  
 function arquivarCurriculo(curriculoId) {
     motivo = $("#motivo").val();
-    $.ajax({
-        type: 'PUT',
-        url: 'curriculo/' + curriculoId + '/arquivar/',
-        data: {
-            motivo
-        }
-    });
+
+    if (motivo != '') {
+        $.ajax({
+            type: 'PUT',
+            url: 'curriculo/' + curriculoId + '/arquivar/',
+            data: {
+                motivo
+            }
+        });
+    } else {
+        alert('Insira o motivo da rejeição do(s) candidato(s)!');
+    }
 }
  
 function desarquivarCurriculo(curriculoId) {
@@ -200,13 +205,17 @@ function desarquivarCurriculo(curriculoId) {
  
 function deletarCurriculo(curriculoId) {
     motivo = $("#motivo").val();
-    $.ajax({
-        type: 'DELETE',
-        url: 'curriculo/' + curriculoId,
-        data: {
-            motivo
-        }
-    });
+    if (motivo != '') {
+        $.ajax({
+            type: 'DELETE',
+            url: 'curriculo/' + curriculoId,
+            data: {
+                motivo
+            }
+        });
+    } else {
+        alert('Insira o motivo da rejeição do(s) candidato(s)!');
+    }
 }
  
 function arquivarSelecionados() {
