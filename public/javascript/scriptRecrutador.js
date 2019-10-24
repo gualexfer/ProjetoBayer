@@ -1,5 +1,5 @@
 let selecionados = [];
-let selectedId;
+let selectedId, motivo;
  
 $(function() {
     $(document).ajaxStop(function(e) {
@@ -12,7 +12,7 @@ $(function() {
             $("#curriculosArquivados" + vaga).removeClass('d-none');
             $("#curriculosNaoArquivados" + vaga).addClass('d-none');
             $("#arquivarSelecionados").attr("value", "Desarquivar selecionados");
-            $("#arquivarSelecionados").attr("onClick", "mostrarModal('desarquivar')");
+            $("#arquivarSelecionados").attr("onClick", "desarquivarSelecionados()");
         }
     });
  
@@ -22,7 +22,7 @@ $(function() {
             $("#curriculosArquivados" + vaga).addClass('d-none');
             $("#curriculosNaoArquivados" + vaga).removeClass('d-none');
             $("#arquivarSelecionados").attr("value", "Aquivar selecionados");
-            $("#arquivarSelecionados").attr("onClick", "mostrarModal('arquivar')");
+            $("#arquivarSelecionados").attr("onClick", "adicionarMotivoMultiplo('arquivar')");
         }
     });
  
@@ -143,6 +143,7 @@ function mostrarModal(paraQuem) {
         $("#modal-body-text").text("Deseja realmente deletar todos os selecionados?");
         $("#modalYes").attr("onClick", "deletarSelecionados()");
     }
+    $("#modal").modal('show');
 }
  
 function exibir(elemento) {
@@ -156,6 +157,21 @@ function exibir(elemento) {
         $("#controleDeVagas").removeClass('d-none');
     }
 }
+
+function adicionarMotivoUnico(chamador, curriculoId) {
+    $("#divMotivo").removeClass('d-none');
+    
+    if (chamador === "arquivar") {
+        $("#confirmarMotivo").attr("onClick", `arquivarCurriculo('${curriculoId}')`);
+    } else if (chamador === "deletar") {
+        $("#confirmarMotivo").attr("onClick", `deletarCurriculo('${curriculoId}')`);
+    }
+}
+
+function adicionarMotivoMultiplo(chamador) {
+    $("#divMotivo").removeClass('d-none');
+    $("#confirmarMotivo").attr("onClick", `mostrarModal('${chamador}')`);
+}
  
 function removerVaga(vagaId) {
     $.ajax({
@@ -165,9 +181,13 @@ function removerVaga(vagaId) {
 }
  
 function arquivarCurriculo(curriculoId) {
+    motivo = $("#motivo").val();
     $.ajax({
         type: 'PUT',
-        url: 'curriculo/' + curriculoId + '/arquivar/'
+        url: 'curriculo/' + curriculoId + '/arquivar/',
+        data: {
+            motivo
+        }
     });
 }
  
@@ -179,9 +199,13 @@ function desarquivarCurriculo(curriculoId) {
 }
  
 function deletarCurriculo(curriculoId) {
+    motivo = $("#motivo").val();
     $.ajax({
         type: 'DELETE',
-        url: 'curriculo/' + curriculoId
+        url: 'curriculo/' + curriculoId,
+        data: {
+            motivo
+        }
     });
 }
  
