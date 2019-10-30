@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const curriculoController = require('./controllers/curriculoController');
 const recrutadorController = require('./controllers/recrutadorController');
 const submeterCurriculoController = require('./controllers/submeterCurriculoController');
+
 const app = express();
 const port = 3001;
 

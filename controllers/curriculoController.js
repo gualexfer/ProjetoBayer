@@ -1,6 +1,11 @@
 const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
+const twilio = require('twilio');
 const Curriculo = require('../models/curriculo');
+const client = twilio(
+    'ACfc901094d69027fd211db4fcffc38bd2',
+    '71d7b06c213f60cf12638c5dd2b6d6b4'
+);
 
 const transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -38,6 +43,18 @@ module.exports = function(app) {
                     console.log("E-mail de feedback enviado!");
                 }
             });
+            client.messages
+            .create({
+                from: 'whatsapp:+14155238886',
+                to: 'whatsapp:+55' + curriculo.contato.telefone,
+                body: `Motivo: ${req.body.motivo}`
+            })
+            .then(message => {
+                console.log("Mensagem enviada! SID da mensagem: " + message.sid)
+            })
+            .catch(err => {
+                console.log(err);
+            });
             res.send(curriculo);
         });
     });
@@ -58,6 +75,18 @@ module.exports = function(app) {
                 } else {
                     console.log("E-mail de feedback enviado!");
                 }
+            });
+            client.messages
+            .create({
+                from: 'whatsapp:+14155238886',
+                to: 'whatsapp:+55' + curriculo.contato.telefone,
+                body: `Motivo: ${req.body.motivo}`
+            })
+            .then(message => {
+                console.log("Mensagem enviada! SID da mensagem: " + message.sid)
+            })
+            .catch(err => {
+                console.log(err);
             });
             res.send(curriculo);
         });
